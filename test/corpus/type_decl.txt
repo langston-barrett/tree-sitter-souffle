@@ -1,0 +1,123 @@
+============================================================
+Subtype symbol
+============================================================
+
+.type T <: symbol
+
+---
+
+(program
+  (type_decl
+    (subtype
+      left:
+        (ident)
+      right:
+        (type_name (primitive_type)))))
+
+============================================================
+Type synonym
+============================================================
+
+.type p1 = q1
+
+---
+
+(program
+  (type_decl
+    (type_synonym
+      left:
+        (ident)
+      right:
+        (type_name (qualified_name (ident))))))
+
+============================================================
+Binary union
+============================================================
+
+.type P
+  = Q
+  | R
+
+---
+
+(program
+  (type_decl 
+    (type_union
+      left:
+        (ident)
+      branch:
+        (type_name (qualified_name (ident)))
+      branch:
+        (type_name (qualified_name (ident))))))
+
+============================================================
+Nullary record
+============================================================
+
+.type r = [ ]
+
+---
+
+(program (type_decl (type_record left: (ident))))
+
+============================================================
+Binary record
+============================================================
+
+.type pt = [ x: number, y: number ]
+
+---
+
+(program
+  (type_decl
+    (type_record
+      left:
+        (ident)
+      (attribute var: (ident) type: (type_name (primitive_type)))
+      (attribute var: (ident) type: (type_name (primitive_type))))))
+
+============================================================
+Binary record (no spaces)
+============================================================
+
+.type pt = [x:number,y:number]
+
+---
+
+(program
+  (type_decl
+    (type_record
+      (ident)
+      (attribute (ident) (type_name (primitive_type)))
+      (attribute (ident) (type_name (primitive_type))))))
+
+============================================================
+ADT
+============================================================
+
+.type Foo
+  = Q { x: symbol }
+  | R { y: number, z: Foo }
+
+---
+
+(program
+  (type_decl
+    (adt
+      (ident)
+      (adt_branch (ident) (attribute (ident) (type_name (primitive_type))))
+      (adt_branch
+        (ident)
+        (attribute (ident) (type_name (primitive_type)))
+        (attribute (ident) (type_name (qualified_name (ident))))))))
+
+============================================================
+Redefinition of primitives
+============================================================
+
+.type number = number
+
+---
+
+(program (type_decl (type_synonym (ident) (type_name (primitive_type)))))
+

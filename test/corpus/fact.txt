@@ -1,0 +1,248 @@
+============================================================
+Nullary fact
+============================================================
+
+nullary_fact().
+
+---
+
+(program (fact (atom (qualified_name (ident)))))
+
+============================================================
+Unary underscore fact
+============================================================
+
+zero(_).
+
+---
+
+(program
+  (fact
+    (atom
+      (qualified_name (ident))
+      (argument (anonymous)))))
+
+============================================================
+Unary number fact
+============================================================
+
+zero(0).
+
+---
+
+(program
+  (fact
+    (atom
+      (qualified_name (ident))
+      (argument (constant (number (integer (decimal))))))))
+
+============================================================
+Unary binary number fact
+============================================================
+
+zero(0b0).
+
+---
+
+(program
+  (fact
+    (atom
+      (qualified_name (ident))
+      (argument (constant (number (integer (binary))))))))
+
+============================================================
+Binary hex fact
+============================================================
+
+fact(0xFE, 0xa1).
+
+---
+
+(program
+  (fact
+    (atom
+      (qualified_name (ident))
+      (argument (constant (number (integer (hex)))))
+      (argument (constant (number (integer (hex))))))))
+
+============================================================
+Unary float fact
+============================================================
+
+fact(-0.13).
+
+---
+
+(program
+  (fact
+    (atom
+      (qualified_name (ident))
+      (argument (constant (number (float)))))))
+
+============================================================
+Unary string fact
+============================================================
+
+str("string").
+
+---
+
+(program
+  (fact
+    (atom
+      (qualified_name (ident))
+      (argument (constant (string))))))
+
+============================================================
+Unary string fact with escaped quote
+============================================================
+
+str("\"").
+
+---
+
+(program
+  (fact
+    (atom
+      (qualified_name (ident))
+      (argument (constant (string))))))
+
+============================================================
+Unary variable fact
+============================================================
+
+var(v).
+
+---
+
+(program
+  (fact
+    (atom
+      (qualified_name (ident))
+      (argument (variable (ident))))))
+
+============================================================
+Unary cast fact
+============================================================
+
+zero(as(0, T)).
+
+---
+
+(program
+  (fact
+    (atom
+      (qualified_name (ident))
+      (argument
+        (as
+          expr:
+            (argument (constant (number (integer (decimal)))))
+          type:
+            (type_name (qualified_name (ident))))))))
+
+============================================================
+Unary ADT fact
+============================================================
+
+zero($A).
+
+---
+
+(program
+  (fact
+    (atom
+      (qualified_name (ident))
+      (argument (adt_constructor (qualified_name (ident)))))))
+
+============================================================
+Unary max fact
+============================================================
+
+zero(max X : { some(X) }).
+
+---
+
+(program
+  (fact
+    (atom
+      (qualified_name (ident))
+      (argument
+        (aggregator
+          (argument (variable (ident)))
+          (disjunction
+            (conjunction
+              (atom
+                (qualified_name (ident))
+                (argument (variable (ident)))))))))))
+
+============================================================
+Unary range fact
+============================================================
+
+fact(range(0, 1)).
+
+---
+
+(program
+  (fact
+    (atom
+      (qualified_name (ident))
+      (argument
+        (aggregator
+          (range
+            low:
+              (argument (constant (number (integer (decimal)))))
+            high:
+              (argument (constant (number (integer (decimal)))))))))))
+
+============================================================
+Intrinsic functor fact
+============================================================
+
+fact(to_string(0)).
+
+---
+
+(program
+  (fact
+    (atom
+      (qualified_name (ident))
+      (argument
+        (functor_call
+          (intrinsic_functor)
+          (argument (constant (number (integer (decimal))))))))))
+
+============================================================
+Intrinsic functor fact (cat, no spaces)
+============================================================
+
+fact(cat("",v)).
+
+---
+
+(program
+  (fact
+    (atom
+      (qualified_name (ident))
+      (argument
+        (functor_call
+          (intrinsic_functor)
+          (argument (constant (string)))
+          (argument (variable (ident))))))))
+
+============================================================
+User-defined functor fact
+============================================================
+
+fact(@functor(0)).
+
+---
+
+(program
+  (fact
+    (atom
+      (qualified_name (ident))
+      (argument
+        (functor_call
+          (user_defined_functor (ident))
+          (argument (constant (number (integer (decimal))))))))))

@@ -1,0 +1,109 @@
+#!/usr/bin/env bash
+
+# Script that attempts to parse programs from the Soufflé test suite.
+#
+# TODO(lb): It would be better to generate tests in this repo, e.g. by looping
+# over all the Datalog files in the Soufflé repo (and others?) with souffle
+# --show=parse-errors and classifying each into "positive" and "negative" tests
+# based on the output.
+
+set -e
+
+shopt -s globstar
+
+# https://github.com/tree-sitter/tree-sitter-python/blob/master/script/parse-examples
+#
+# The MIT License (MIT)
+#
+# Copyright (c) 2016 Max Brunsfeld
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+cd "$(dirname "$0")/.."
+
+function checkout() {
+  repo=$1
+  url=$2
+  sha=$3
+
+  if [ ! -d "$repo" ]; then
+    if [[ "$url" =~ "http" ]]; then
+      git clone "${url}" "$repo"
+      pushd "$repo"
+      git fetch && git reset --hard "$sha"
+      popd
+    else
+      git clone "https://github.com/$url" "$repo"
+      pushd "$repo"
+      git fetch && git reset --hard "$sha"
+      popd
+    fi
+  fi
+}
+
+# https://souffle-lang.github.io/applications
+checkout souffle souffle-lang/souffle 2.3
+checkout cclyzer++ GaloisInc/cclyzerpp v0.3
+checkout ddisasm GrammaTech/ddisasm c4ae9d4
+checkout souffle-bench souffle-lang/benchmarks acd6b9e
+checkout vandal usyd-blockchain/vandal d2b0043
+
+# Haven't figured out how to set up cpp to be happy with these projects:
+# checkout doop https://bitbucket.org/yanniss/doop 46b1d00
+# checkout gigahorse nevillegrech/gigahorse-toolchain c668ca2
+# checkout securify eth-sri/securify2 def1e30
+
+examples=(
+  souffle/tests/evaluation/**/*.dl
+  souffle/tests/example/**/*.dl
+  souffle/tests/interface/**/*.dl
+  souffle/tests/provenance/**/*.dl
+  souffle/tests/scheduler/**/*.dl
+  souffle/tests/semantic/**/*.dl
+  cclyzer++/datalog/debug.project
+  ddisasm/src/datalog/main.dl
+  souffle-bench/**/*.dl
+  vandal/datalog/**/*.dl
+)
+
+pass=0
+fail=0
+for f in "${examples[@]}"; do
+  if grep "${f}" scripts/known-failures.txt > /dev/null; then
+    printf "XFAIL: %s\n" "${f}"
+    continue
+  fi
+  test=$(mktemp "$(basename "${f}.XXXXX")")
+  # Architecture is defined for ddisasm, X_STATS_FULL for Doop
+  # -P skips line numbers
+  mcpp -P -DARCH_ARM64 -DX_STATS_FULL -W 0 "${f}" -o "${test}"
+  if tree-sitter parse -q "${test}" &> /dev/null; then
+    pass=$((pass + 1))
+    printf "PASS: %s\n" "${f}"
+  else
+    fail=$((fail + 1))
+    printf "FAIL: %s\n" "${f}"
+    mkdir -p fail
+    cp "${test}" fail/"$(basename "${f}")"
+  fi
+  rm "${test}"
+done
+
+xfail=$(wc -l < scripts/known-failures.txt)
+printf "Parsed ${pass} / $((pass + fail)) with ${xfail} known failures\n"

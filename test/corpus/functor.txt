@@ -1,0 +1,26 @@
+============================================================
+Nullary functor declaration
+============================================================
+
+.functor g():symbol
+
+---
+
+(program
+  (functor_decl
+    (ident)
+    (type_name (primitive_type))))
+
+============================================================
+Unary functor declaration
+============================================================
+
+.functor f(x:number):number stateful
+
+---
+
+(program
+  (functor_decl
+    (ident)
+    (attribute (ident) (type_name (primitive_type)))
+    (type_name (primitive_type))))

@@ -1,0 +1,64 @@
+============================================================
+Empty component
+============================================================
+
+.comp F { }
+
+---
+
+(program (component_decl (component_type (ident))))
+
+============================================================
+Nested component
+============================================================
+
+.comp F {
+  .comp G { }
+}
+
+---
+
+(program
+  (component_decl
+    (component_type (ident))
+      (component_decl (component_type (ident)))))
+
+============================================================
+Component with relation
+============================================================
+
+.comp F {
+  .decl R()
+}
+
+---
+
+(program
+  (component_decl
+    (component_type (ident))
+      (relation_decl (ident))))
+
+============================================================
+Inheritance
+============================================================
+
+.comp Sub : Super { }
+
+---
+
+(program
+  (component_decl
+    type:
+      (component_type (ident))
+    super:
+      (component_type (ident))))
+
+============================================================
+Init
+============================================================
+
+.init foo = bar
+
+---
+
+(program (component_init (ident) (component_type (ident))))

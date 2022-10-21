@@ -1,0 +1,142 @@
+============================================================
+Nullary relation declaration
+============================================================
+
+.decl valid_relation_name()
+
+---
+
+(program
+  (relation_decl (ident)))
+
+============================================================
+Unary relation declaration
+============================================================
+
+.decl name(x: number)
+
+---
+
+(program
+  (relation_decl
+    head:
+      (ident)
+    (attribute
+      var: (ident)
+      type: (type_name (primitive_type)))))
+
+============================================================
+Unary relation declaration (no space)
+============================================================
+
+.decl name(x:number)
+
+---
+
+(program
+  (relation_decl
+    head:
+      (ident)
+    (attribute
+      var: (ident)
+      type: (type_name (primitive_type)))))
+
+============================================================
+Binary relation declaration
+============================================================
+
+.decl Bin(Blah: symbol, Foo: Ty) eqrel
+
+---
+
+(program
+  (relation_decl
+    head:
+      (ident)
+    (attribute
+      var: (ident)
+      type: (type_name (primitive_type)))
+    (attribute
+      var: (ident)
+      type: (type_name (qualified_name (ident))))
+    (relation_qualifier)))
+
+============================================================
+Unary domain
+============================================================
+
+.decl rel(x: T, y: T) choice-domain x
+
+---
+
+(program
+  (relation_decl
+    head:
+      (ident)
+    (attribute
+      var: (ident)
+      type: (type_name (qualified_name (ident))))
+    (attribute
+      var: (ident)
+      type: (type_name (qualified_name (ident))))
+    (choice_domain (ident))))
+
+============================================================
+Binary choice domain
+============================================================
+
+.decl rel(x: T, y: T) choice-domain (x, x)
+
+---
+
+(program
+  (relation_decl
+    head:
+      (ident)
+    (attribute
+      var: (ident)
+      type: (type_name (qualified_name (ident))))
+    (attribute
+      var: (ident)
+      type: (type_name (qualified_name (ident))))
+    (choice_domain (ident) (ident))))
+
+============================================================
+Binary choice domain (no parens)
+============================================================
+
+.decl rel(x: T, y: T) choice-domain x, x
+
+---
+
+(program
+  (relation_decl
+    head:
+      (ident)
+    (attribute
+      var: (ident)
+      type: (type_name (qualified_name (ident))))
+    (attribute
+      var: (ident)
+      type: (type_name (qualified_name (ident))))
+    (choice_domain (ident) (ident))))
+
+============================================================
+Parenthesized binary choice domain
+============================================================
+
+.decl rel(x: T, y: T) choice-domain (x, x), (x, x)
+
+---
+
+(program
+  (relation_decl
+    head:
+      (ident)
+    (attribute
+      var: (ident)
+      type: (type_name (qualified_name (ident))))
+    (attribute
+      var: (ident)
+      type: (type_name (qualified_name (ident))))
+    (choice_domain (ident) (ident) (ident) (ident))))

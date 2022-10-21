@@ -1,0 +1,91 @@
+============================================================
+Input directive
+============================================================
+
+.input rel()
+
+---
+
+(program
+  (directive
+    (directive_qualifier)
+    (qualified_name (ident))))
+
+============================================================
+Output directive
+============================================================
+
+.output rel(IO=stdout)
+
+---
+
+(program
+  (directive
+    (directive_qualifier)
+    relation:
+      (qualified_name (ident))
+    (ident)
+    (directive_value (ident))))
+
+============================================================
+Qualified output directive
+============================================================
+
+.output foo.bar
+
+---
+
+(program (directive (directive_qualifier) (qualified_name (ident) (ident)))) 
+
+============================================================
+Output directive with empty parens
+============================================================
+
+.output baz()
+
+---
+
+(program (directive (directive_qualifier) (qualified_name (ident)))) 
+
+============================================================
+Output directive with compress
+============================================================
+
+.output baz (compress=true)
+
+---
+
+(program
+  (directive
+    (directive_qualifier)
+    (qualified_name (ident))
+    (ident)
+    (directive_value (ident))))
+
+============================================================
+Output multiple
+============================================================
+
+.output baz, bar
+
+---
+
+(program
+  (directive
+    (directive_qualifier)
+    (qualified_name (ident))
+    (qualified_name (ident))))
+
+============================================================
+Qualified name with ".type"
+============================================================
+
+.output bar.type.foo
+
+---
+
+(program
+  (directive
+    (directive_qualifier)
+    (qualified_name (ident))
+    (qualified_name (ident))))
