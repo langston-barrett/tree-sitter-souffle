@@ -1,5 +1,7 @@
 # tree-sitter-souffle
 
+![crates.io](https://img.shields.io/crates/v/tree-sitter-souffle.svg)
+
 A [tree-sitter][tree-sitter] grammar for [Soufflé][souffle].
 
 ## Contents
