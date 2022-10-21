@@ -498,7 +498,6 @@ module.exports = grammar({
       ))
     ),
 
-    // unary_op: $ => 'TODO(Lb):(unary)',
     unary_operator: $ => prec.left(1, choice(  // conflict: negation
       'bnot',
       'lnot',
