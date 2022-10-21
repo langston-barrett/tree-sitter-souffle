@@ -2,6 +2,10 @@
 
 <!-- See: https://keepachangelog.com/en/1.0.0/ -->
 
+## [0.3.0] - 2022-10-21
+
+- v0.1.0 on crates.io actually corresponded to v0.2.0 in this repo. Now fixed.
+
 ## [0.2.0] - 2022-10-21
 
 ### Added
