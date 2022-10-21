@@ -2,6 +2,23 @@
 
 A [tree-sitter][tree-sitter] grammar for [Soufflé][souffle].
 
+## Contents
+
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
+
+- [tree-sitter-souffle](#tree-sitter-souffle)
+    - [Contents](#contents)
+    - [Status](#status)
+        - [Known Issues](#known-issues)
+    - [Use-Cases](#use-cases)
+    - [On the C Pre-Processor](#on-the-c-pre-processor)
+    - [Design](#design)
+    - [Development](#development)
+        - [Tests](#tests)
+        - [References](#references)
+<!-- markdown-toc end -->
+
 ## Status
 
 The grammar is fairly complete. It parses:
@@ -38,17 +55,27 @@ This grammar aims to support the following use-cases:
 - Linting
 - Static analysis
 
-It does *not* currently aim to support round-trip printing (i.e., code formatting).
+It does *not* currently aim to support round-trip printing (i.e., code
+formatting and refactoring).
 
 ## On the C Pre-Processor
 
 This parser has limited support for parsing C pre-processor `#line` directives,
 which may be helpful for analysis tasks. To avoid over-complicating the grammar,
-you can configure your preprocessor to not emit such tokens (`-P` for `mcpp`).
+it does not handle directives in the middle of top-level entities (e.g., in
+between two conjuncts of a rule). You can configure your preprocessor to not
+emit such tokens (`-P` for `mcpp`).
 
 ## Design
 
-The grammar doesn't mirror the structure of the Soufflé C++ parser implementation nor the grammar as presented in the Soufflé documentation. It instead tries to map nonterminals to more abstract categories, i.e., categories that match the way we think about the language. For instance, the Soufflé C++ parser doesn't have a nonterminal for constants, whereas this parser does. As another example, the Soufflé documentation has this specification for type declarations:
+The grammar doesn't mirror the structure of the Soufflé C++ parser
+implementation nor the grammar as presented in the Soufflé documentation. It
+instead tries to map nonterminals to more abstract categories, i.e., categories
+that match the way we think about the language. For instance, the Soufflé C++
+parser doesn't have a nonterminal for constants, whereas this parser does. As
+another example, the Soufflé documentation has this specification for type
+declarations:
+
 ```
 type_decl ::= '.type' IDENT ("<:" type_name | "=" ( type_name ( "|" type_name )* | record_list | adt_branch ( "|" adt_branch )* ))
 ```
@@ -56,7 +83,8 @@ This grammar instead has something more like
 ```javascript
 type_decl ::= subtype | type_synonym | type_union | record | adt
 ```
-so that the parse tree encodes a bit more "semantic" information. The hope is that these choices make it easier to write [tree-sitter queries][queries].
+so that the parse tree encodes a bit more "semantic" information. The hope is
+that these choices make it easier to write [tree-sitter queries][queries].
 
 For the same reason, the grammar doesn't specify keywords and operators like
 `.functor`, `eqrel`, `*`, and `:-` as their own nonterminals, but rather inlines

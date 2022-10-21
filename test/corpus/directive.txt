@@ -84,8 +84,4 @@ Qualified name with ".type"
 
 ---
 
-(program
-  (directive
-    (directive_qualifier)
-    (qualified_name (ident))
-    (qualified_name (ident))))
+(program (directive (directive_qualifier) (qualified_name (ident))) (ERROR (UNEXPECTED 'o'))) 
