@@ -115,6 +115,14 @@ This script downloads the Soufflé, ddisasm, cclyzer++, and other repos and atte
 - [Soufflé Documentation](https://souffle-lang.github.io/program#program)
 - [Soufflé Parser](https://github.com/souffle-lang/souffle/blob/master/src/parser/parser.yy)
 
+### Releasing
+
+1. Update [`CHANGELOG.md`](./CHANGELOG.md)
+2. Update the version number in [`Cargo.toml`](./Cargo.toml)
+3. `git checkout main && git pull origin && git tag -a vX.Y.Z -m vX.Y.Z && git push --tags`
+4. `cargo publish``
+5. Release the pre-release created by CI
+
 [benchmarks]: https://github.com/souffle-lang/benchmarks/
 [ddisasm]: https://github.com/grammatech/ddisasm
 [queries]: https://tree-sitter.github.io/tree-sitter/using-parsers#pattern-matching-with-queries
