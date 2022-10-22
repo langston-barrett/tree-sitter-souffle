@@ -48,7 +48,7 @@ const NATURAL = /[0-9]+/;
 
 // ---------------------------------------------------------
 
-// TODO(lb)
+// TODO(#11)
 //
 // https://github.com/souffle-lang/souffle/blob/2.3/src/parser/parser.yy#L282
 const PREC = {
@@ -563,7 +563,7 @@ module.exports = grammar({
         choice(
           '.number_type',
           '.symbol_type',
-          // TODO(lb): This causes the test "Redefinition of primitives" to fail
+          // TODO(#9): This causes the test "Redefinition of primitives" to fail
           // '.type',
         ),
       ),
