@@ -8,17 +8,17 @@ A [tree-sitter][tree-sitter] grammar for [Soufflé][souffle].
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
-
 - [tree-sitter-souffle](#tree-sitter-souffle)
     - [Contents](#contents)
     - [Status](#status)
-        - [Known Issues](#known-issues)
     - [Use-Cases](#use-cases)
     - [On the C Pre-Processor](#on-the-c-pre-processor)
     - [Design](#design)
     - [Development](#development)
         - [Tests](#tests)
         - [References](#references)
+        - [Releasing](#releasing)
+
 <!-- markdown-toc end -->
 
 ## Status
