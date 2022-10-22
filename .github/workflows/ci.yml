@@ -9,6 +9,18 @@ on:
   pull_request:
 
 jobs:
+  rust-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Format
+        run: cargo fmt && git diff --exit-code
+      - name: Lint
+        run: |
+          rustup update
+          rustup component add clippy
+          cargo clippy -- -D warnings -A clippy::redundant_static_lifetimes
+
   cargo:
     runs-on: ubuntu-latest
     steps:
