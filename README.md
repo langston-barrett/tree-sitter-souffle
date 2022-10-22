@@ -29,22 +29,7 @@ The grammar is fairly complete. It parses:
 - [ddisasm][ddisasm]
 - The [Soufflé benchmarks][benchmarks]
 
-### Known Issues
-
-<!-- TODO(lb): Replace with links to Github issues -->
-
-The parser can't handle qualified names where `.type` is one of the "middle"
-names, e.g.,
-```
-.output bar.type.foo
-```
-
-It also doesn't handle legacy type declarations, e.g.,
-```
-.type foo
-```
-
-It can't handle relations with names that conflict with builtins, e.g. `exp`.
+There are a few [known issues][issues].
 
 ## Use-Cases
 
@@ -125,6 +110,7 @@ This script downloads the Soufflé, ddisasm, cclyzer++, and other repos and atte
 
 [benchmarks]: https://github.com/souffle-lang/benchmarks/
 [ddisasm]: https://github.com/grammatech/ddisasm
+[issues]: https://github.com/langston-barrett/tree-sitter-souffle/issues
 [queries]: https://tree-sitter.github.io/tree-sitter/using-parsers#pattern-matching-with-queries
 [souffle]: https://souffle-lang.github.io/index.html
 [tree-sitter]: https://tree-sitter.github.io/tree-sitter/
