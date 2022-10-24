@@ -104,12 +104,12 @@ ADT
 (program
   (type_decl
     (adt
-      (ident)
-      (adt_branch (ident) (attribute (ident) (type_name (primitive_type))))
-      (adt_branch
-        (ident)
-        (attribute (ident) (type_name (primitive_type)))
-        (attribute (ident) (type_name (qualified_name (ident))))))))
+      left: (ident)
+      constructor: (ident)
+      field: (attribute var: (ident) type: (type_name (primitive_type)))
+      constructor: (ident)
+      field: (attribute var: (ident) type: (type_name (primitive_type)))
+      field: (attribute var: (ident) type: (type_name (qualified_name (ident)))))))
 
 ============================================================
 Redefinition of primitives
