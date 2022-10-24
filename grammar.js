@@ -283,9 +283,9 @@ module.exports = grammar({
     query_plan: $ => seq(
       '.plan',
       commas1(seq(
-        NATURAL,  // TODO(17): Make natural into a field
+        field('number', NATURAL),
         ':',
-        parens(commas(NATURAL)),  // TODO(17): Make natural into a field
+        parens(commas(field('order', NATURAL))),
       ))
     ),
 
