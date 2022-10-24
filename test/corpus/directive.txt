@@ -25,7 +25,7 @@ Output directive
     relation:
       (qualified_name (ident))
     key: (ident)
-    value: (directive_value (ident))))
+    value: (ident)))
 
 ============================================================
 Qualified output directive
@@ -58,9 +58,9 @@ Output directive with compress
 (program
   (directive
     (directive_qualifier)
-    (qualified_name (ident))
-    (ident)
-    (directive_value (ident))))
+    relation: (qualified_name (ident))
+    key: (ident)
+    value: (ident)))
 
 ============================================================
 Output multiple
