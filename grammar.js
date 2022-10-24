@@ -283,9 +283,9 @@ module.exports = grammar({
     query_plan: $ => seq(
       '.plan',
       commas1(seq(
-        NATURAL,
+        NATURAL,  // TODO(17): Make natural into a field
         ':',
-        parens(commas(NATURAL)),
+        parens(commas(NATURAL)),  // TODO(17): Make natural into a field
       ))
     ),
 
@@ -306,7 +306,7 @@ module.exports = grammar({
       repeat($.negation),
       choice(
         $.atom,
-        $.constraint,
+        $._constraint,
         parens($.disjunction)
       ),
     )),
@@ -316,7 +316,7 @@ module.exports = grammar({
     //            | 'true'
     //            | 'false'
     //
-    constraint: $ => choice(
+    _constraint: $ => choice(
       $.bool,
       $.comparison,
       $.match,
