@@ -140,3 +140,14 @@ Parenthesized binary choice domain
       var: (ident)
       type: (type_name (qualified_name (ident))))
     (choice_domain (ident) (ident) (ident) (ident))))
+
+============================================================
+Redefine built-in
+============================================================
+
+.decl log()
+
+---
+
+(program (relation_decl (ident))) 
+
