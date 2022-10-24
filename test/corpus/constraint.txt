@@ -9,7 +9,7 @@ rule() :- true.
 (program
   (rule
     (monotonic_rule
-      head: (atom (qualified_name (ident)))
+      head: (atom relation: (qualified_name (ident)))
       body:
         (disjunction
           (conjunction (constraint (bool)))))))
@@ -25,7 +25,7 @@ rule() :- 0 = y.
 (program
   (rule
     (monotonic_rule
-      head: (atom (qualified_name (ident)))
+      head: (atom relation: (qualified_name (ident)))
       body:
         (disjunction
           (conjunction
