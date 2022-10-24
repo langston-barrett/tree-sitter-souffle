@@ -215,9 +215,12 @@ module.exports = grammar({
     //
     directive: $ => seq(
       $.directive_qualifier,
-      field('relation', commas1($.qualified_name)),
-      // field('relation', $.qualified_name),
-      optional(parens(commas(seq($.ident, '=', $.directive_value))))
+      commas1(field('relation', $.qualified_name)),
+      optional(parens(commas(seq(
+        field('key', $.ident),
+        '=',
+        field('value', $.directive_value)
+      ))))
     ),
 
     // directive_qualifier  ::= '.input' | '.output' | '.printsize' | '.limitsize'

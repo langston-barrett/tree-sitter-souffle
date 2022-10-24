@@ -24,8 +24,8 @@ Output directive
     (directive_qualifier)
     relation:
       (qualified_name (ident))
-    (ident)
-    (directive_value (ident))))
+    key: (ident)
+    value: (directive_value (ident))))
 
 ============================================================
 Qualified output directive
