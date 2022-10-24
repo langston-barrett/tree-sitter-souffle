@@ -2060,7 +2060,7 @@
         }
       ]
     },
-    "unary_operator": {
+    "_unary_operator": {
       "type": "PREC_LEFT",
       "value": 1,
       "content": {
@@ -2100,7 +2100,7 @@
             "name": "operator",
             "content": {
               "type": "SYMBOL",
-              "name": "unary_operator"
+              "name": "_unary_operator"
             }
           },
           {
@@ -3002,10 +3002,14 @@
           ]
         },
         {
-          "type": "REPEAT",
+          "type": "FIELD",
+          "name": "qualifier",
           "content": {
-            "type": "SYMBOL",
-            "name": "relation_qualifier"
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_relation_qualifier"
+            }
           }
         },
         {
@@ -3022,7 +3026,7 @@
         }
       ]
     },
-    "relation_qualifier": {
+    "_relation_qualifier": {
       "type": "CHOICE",
       "members": [
         {
