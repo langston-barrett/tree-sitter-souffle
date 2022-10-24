@@ -1159,8 +1159,12 @@
                   "type": "CHOICE",
                   "members": [
                     {
-                      "type": "SYMBOL",
-                      "name": "_argument"
+                      "type": "FIELD",
+                      "name": "argument",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "_argument"
+                      }
                     },
                     {
                       "type": "BLANK"
@@ -1177,8 +1181,12 @@
                         "value": ","
                       },
                       {
-                        "type": "SYMBOL",
-                        "name": "_argument"
+                        "type": "FIELD",
+                        "name": "argument",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "_argument"
+                        }
                       }
                     ]
                   }
@@ -1214,8 +1222,12 @@
                   "type": "CHOICE",
                   "members": [
                     {
-                      "type": "SYMBOL",
-                      "name": "_argument"
+                      "type": "FIELD",
+                      "name": "argument",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "_argument"
+                      }
                     },
                     {
                       "type": "BLANK"
@@ -1232,8 +1244,12 @@
                         "value": ","
                       },
                       {
-                        "type": "SYMBOL",
-                        "name": "_argument"
+                        "type": "FIELD",
+                        "name": "argument",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "_argument"
+                        }
                       }
                     ]
                   }
@@ -1714,17 +1730,21 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "user_defined_functor"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "intrinsic_functor"
-            }
-          ]
+          "type": "FIELD",
+          "name": "functor",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "user_defined_functor"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "intrinsic_functor"
+              }
+            ]
+          }
         },
         {
           "type": "SEQ",
@@ -1740,8 +1760,12 @@
                   "type": "CHOICE",
                   "members": [
                     {
-                      "type": "SYMBOL",
-                      "name": "_argument"
+                      "type": "FIELD",
+                      "name": "argument",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "_argument"
+                      }
                     },
                     {
                       "type": "BLANK"
@@ -1758,8 +1782,12 @@
                         "value": ","
                       },
                       {
-                        "type": "SYMBOL",
-                        "name": "_argument"
+                        "type": "FIELD",
+                        "name": "argument",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "_argument"
+                        }
                       }
                     ]
                   }
@@ -1782,8 +1810,12 @@
           "value": "@"
         },
         {
-          "type": "SYMBOL",
-          "name": "ident"
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "ident"
+          }
         }
       ]
     },

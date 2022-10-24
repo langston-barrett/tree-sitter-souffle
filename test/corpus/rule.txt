@@ -201,8 +201,8 @@ rule() :- contains(x, y).
       (disjunction
         (conjunction
           (contains
-            (variable (ident))
-            (variable (ident)))))))
+            argument: (variable (ident))
+            argument: (variable (ident)))))))
 
 ============================================================
 Rule for built-in (TODO(#10))
