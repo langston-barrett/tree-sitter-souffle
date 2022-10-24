@@ -130,6 +130,23 @@ var(v).
       argument: (variable (ident)))))
 
 ============================================================
+Unary operator fact
+============================================================
+
+ones(~0).
+
+---
+
+(program
+  (fact
+    atom:
+    (atom
+      relation: (qualified_name (ident))
+      argument:
+        (unary_op
+          operand: (constant (number (integer (decimal))))))))
+
+============================================================
 Unary cast fact
 ============================================================
 
