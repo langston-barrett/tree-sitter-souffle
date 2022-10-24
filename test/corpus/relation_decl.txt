@@ -21,9 +21,10 @@ Unary relation declaration
   (relation_decl
     head:
       (ident)
-    (attribute
-      var: (ident)
-      type: (primitive_type))))
+    attribute:
+      (attribute
+        var: (ident)
+        type: (primitive_type))))
 
 ============================================================
 Unary relation declaration (no space)
@@ -37,9 +38,10 @@ Unary relation declaration (no space)
   (relation_decl
     head:
       (ident)
-    (attribute
-      var: (ident)
-      type: (primitive_type))))
+    attribute:
+      (attribute
+        var: (ident)
+        type: (primitive_type))))
 
 ============================================================
 Binary relation declaration
@@ -53,15 +55,17 @@ Binary relation declaration
   (relation_decl
     head:
       (ident)
-    (attribute
-      var: (ident)
-      type: (primitive_type))
-    (attribute
-      var: (ident)
-      type: (qualified_name (ident)))))
+    attribute:
+      (attribute
+        var: (ident)
+        type: (primitive_type))
+    attribute:
+      (attribute
+        var: (ident)
+        type: (qualified_name (ident)))))
 
 ============================================================
-Unary domain
+Unary choice domain
 ============================================================
 
 .decl rel(x: T, y: T) choice-domain x
@@ -72,13 +76,15 @@ Unary domain
   (relation_decl
     head:
       (ident)
-    (attribute
-      var: (ident)
-      type: (qualified_name (ident)))
-    (attribute
-      var: (ident)
-      type: (qualified_name (ident)))
-    (choice_domain (ident))))
+    attribute:
+      (attribute
+        var: (ident)
+        type: (qualified_name (ident)))
+    attribute:
+      (attribute
+        var: (ident)
+        type: (qualified_name (ident)))
+    choice: (choice_domain (ident))))
 
 ============================================================
 Binary choice domain
@@ -92,13 +98,15 @@ Binary choice domain
   (relation_decl
     head:
       (ident)
-    (attribute
-      var: (ident)
-      type: (qualified_name (ident)))
-    (attribute
-      var: (ident)
-      type: (qualified_name (ident)))
-    (choice_domain (ident) (ident))))
+    attribute:
+      (attribute
+        var: (ident)
+        type: (qualified_name (ident)))
+    attribute:
+      (attribute
+        var: (ident)
+        type: (qualified_name (ident)))
+    choice: (choice_domain (ident) (ident))))
 
 ============================================================
 Binary choice domain (no parens)
@@ -112,13 +120,15 @@ Binary choice domain (no parens)
   (relation_decl
     head:
       (ident)
-    (attribute
-      var: (ident)
-      type: (qualified_name (ident)))
-    (attribute
-      var: (ident)
-      type: (qualified_name (ident)))
-    (choice_domain (ident) (ident))))
+    attribute:
+      (attribute
+        var: (ident)
+        type: (qualified_name (ident)))
+    attribute:
+      (attribute
+        var: (ident)
+        type: (qualified_name (ident)))
+    choice: (choice_domain (ident) (ident))))
 
 ============================================================
 Parenthesized binary choice domain
@@ -132,13 +142,15 @@ Parenthesized binary choice domain
   (relation_decl
     head:
       (ident)
-    (attribute
-      var: (ident)
-      type: (qualified_name (ident)))
-    (attribute
-      var: (ident)
-      type: (qualified_name (ident)))
-    (choice_domain (ident) (ident) (ident) (ident))))
+    attribute:
+      (attribute
+        var: (ident)
+        type: (qualified_name (ident)))
+    attribute:
+      (attribute
+        var: (ident)
+        type: (qualified_name (ident)))
+    choice: (choice_domain (ident) (ident) (ident) (ident))))
 
 ============================================================
 Redefine built-in
