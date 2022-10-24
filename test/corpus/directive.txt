@@ -77,7 +77,7 @@ Output multiple
     (qualified_name (ident))))
 
 ============================================================
-Qualified name with ".type"
+Qualified name with ".type" (TODO(#8))
 ============================================================
 
 .output bar.type.foo
