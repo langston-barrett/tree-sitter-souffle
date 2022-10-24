@@ -194,7 +194,10 @@ module.exports = grammar({
     // component_type ::= IDENT ( '<' IDENT ( ',' IDENT )* '>' )?
     //
     // https://souffle-lang.github.io/components#component-type
-    component_type: $ => seq($.ident, optional(angles(commas1($.ident)))),
+    component_type: $ => seq(
+      field('name', $.ident),
+      optional(angles(commas1(field('param', $.ident))))
+    ),
 
     // component_init ::= '.init' IDENT '=' component_type
     //

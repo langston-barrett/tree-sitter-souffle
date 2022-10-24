@@ -418,8 +418,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "ident"
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "ident"
+          }
         },
         {
           "type": "CHOICE",
@@ -435,8 +439,12 @@
                   "type": "SEQ",
                   "members": [
                     {
-                      "type": "SYMBOL",
-                      "name": "ident"
+                      "type": "FIELD",
+                      "name": "param",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "ident"
+                      }
                     },
                     {
                       "type": "REPEAT",
@@ -448,8 +456,12 @@
                             "value": ","
                           },
                           {
-                            "type": "SYMBOL",
-                            "name": "ident"
+                            "type": "FIELD",
+                            "name": "param",
+                            "content": {
+                              "type": "SYMBOL",
+                              "name": "ident"
+                            }
                           }
                         ]
                       }

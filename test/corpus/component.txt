@@ -49,9 +49,9 @@ Inheritance
 (program
   (component_decl
     type:
-      (component_type (ident))
+      (component_type name: (ident))
     super:
-      (component_type (ident))))
+      (component_type name: (ident))))
 
 ============================================================
 Init
