@@ -3500,8 +3500,12 @@
                     "type": "CHOICE",
                     "members": [
                       {
-                        "type": "SYMBOL",
-                        "name": "attribute"
+                        "type": "FIELD",
+                        "name": "field",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "attribute"
+                        }
                       },
                       {
                         "type": "BLANK"
@@ -3518,8 +3522,12 @@
                           "value": ","
                         },
                         {
-                          "type": "SYMBOL",
-                          "name": "attribute"
+                          "type": "FIELD",
+                          "name": "field",
+                          "content": {
+                            "type": "SYMBOL",
+                            "name": "attribute"
+                          }
                         }
                       ]
                     }
