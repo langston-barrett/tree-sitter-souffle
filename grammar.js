@@ -152,13 +152,13 @@ module.exports = grammar({
     functor_decl: $ => seq(
       '.functor',
       field('name', $.ident),
-      // TODO(lb): Soufflé docs don't reflect that $.type_name may be used here
+      // TODO(lb): Soufflé docs don't reflect that $._type_name may be used here
       parens(commas(choice(
-        field('type', $.type_name),
+        field('type', $._type_name),
         field('attribute', $.attribute)
       ))),
       ':',
-      field('return', $.type_name),
+      field('return', $._type_name),
       optional('stateful'),
     ),
 
@@ -435,7 +435,7 @@ module.exports = grammar({
       '(',
       field('expr', $._argument),
       ',',
-      field('type', $.type_name),
+      field('type', $._type_name),
       ')',
     ),
 
@@ -593,7 +593,7 @@ module.exports = grammar({
         ),
       ),
       field('subtype',
-        $.type_name,
+        $._type_name,
       ),
     ),
 
@@ -620,13 +620,13 @@ module.exports = grammar({
     subtype: $ => seq(
       field('left', $.ident),
       '<:',
-      field('right', $.type_name),
+      field('right', $._type_name),
     ),
 
     type_synonym: $ => seq(
       field('left', $.ident),
       '=',
-      field('right', $.type_name),
+      field('right', $._type_name),
     ),
 
     type_union: $ => prec.left(2, seq(
@@ -634,7 +634,7 @@ module.exports = grammar({
       '=',
       field(
         'branch',
-        seq($.type_name, repeat1(seq('|', $.type_name))),
+        seq($._type_name, repeat1(seq('|', $._type_name))),
       )
     )),
 
@@ -659,11 +659,12 @@ module.exports = grammar({
     //
     // https://souffle-lang.github.io/types#type-name
     //
-    type_name: $ => choice(
+    _type_name: $ => choice(
       $.primitive_type,
       $.qualified_name
     ),
 
+    // NOTE: This is not anonymized because it is useful in tree-sitter queries.
     primitive_type: $ => choice(
       'number',
       'symbol',
@@ -674,7 +675,7 @@ module.exports = grammar({
     // https://souffle-lang.github.io/relations#attribute-declaration
     // https://github.com/souffle-lang/souffle/blob/2.3/src/parser/parser.yy#L505
     // https://github.com/souffle-lang/souffle/blob/2.3/src/parser/parser.yy#L529
-    attribute: $ => seq(field('var', $.ident), ':', field('type', $.type_name)),
+    attribute: $ => seq(field('var', $.ident), ':', field('type', $._type_name)),
 
     // https://souffle-lang.github.io/facts#syntax
     qualified_name: $ => prec.left(dots1($.ident)),

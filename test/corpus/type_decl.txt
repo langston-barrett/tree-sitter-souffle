@@ -12,7 +12,7 @@ Subtype symbol
       left:
         (ident)
       right:
-        (type_name (primitive_type)))))
+        (primitive_type))))
 
 ============================================================
 Type synonym
@@ -28,7 +28,7 @@ Type synonym
       left:
         (ident)
       right:
-        (type_name (qualified_name (ident))))))
+        (qualified_name (ident)))))
 
 ============================================================
 Binary union
@@ -46,9 +46,9 @@ Binary union
       left:
         (ident)
       branch:
-        (type_name (qualified_name (ident)))
+        (qualified_name (ident))
       branch:
-        (type_name (qualified_name (ident))))))
+        (qualified_name (ident)))))
 
 ============================================================
 Nullary record
@@ -73,8 +73,8 @@ Binary record
     (type_record
       left:
         (ident)
-      (attribute var: (ident) type: (type_name (primitive_type)))
-      (attribute var: (ident) type: (type_name (primitive_type))))))
+      (attribute var: (ident) type: (primitive_type))
+      (attribute var: (ident) type: (primitive_type)))))
 
 ============================================================
 Binary record (no spaces)
@@ -88,8 +88,8 @@ Binary record (no spaces)
   (type_decl
     (type_record
       (ident)
-      (attribute (ident) (type_name (primitive_type)))
-      (attribute (ident) (type_name (primitive_type))))))
+      (attribute (ident) (primitive_type))
+      (attribute (ident) (primitive_type)))))
 
 ============================================================
 ADT
@@ -106,10 +106,10 @@ ADT
     (adt
       left: (ident)
       constructor: (ident)
-      field: (attribute var: (ident) type: (type_name (primitive_type)))
+      field: (attribute var: (ident) type: (primitive_type))
       constructor: (ident)
-      field: (attribute var: (ident) type: (type_name (primitive_type)))
-      field: (attribute var: (ident) type: (type_name (qualified_name (ident)))))))
+      field: (attribute var: (ident) type: (primitive_type))
+      field: (attribute var: (ident) type: (qualified_name (ident))))))
 
 ============================================================
 Redefinition of primitives
@@ -119,7 +119,7 @@ Redefinition of primitives
 
 ---
 
-(program (type_decl (type_synonym (ident) (type_name (primitive_type)))))
+(program (type_decl (type_synonym (ident) (primitive_type))))
 
 ============================================================
 Legacy bare type declaration

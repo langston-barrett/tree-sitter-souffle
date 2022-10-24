@@ -162,7 +162,7 @@ zero(as(0, T)).
       argument:
         (as
           expr: (constant (number (integer (decimal))))
-          type: (type_name (qualified_name (ident)))))))
+          type: (qualified_name (ident))))))
 
 ============================================================
 Unary ADT fact

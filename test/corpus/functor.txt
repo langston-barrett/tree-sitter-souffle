@@ -9,7 +9,7 @@ Nullary functor declaration
 (program
   (functor_decl
     name: (ident)
-    return: (type_name (primitive_type))))
+    return: (primitive_type)))
 
 ============================================================
 Unary functor declaration
@@ -25,5 +25,5 @@ Unary functor declaration
     attribute:
       (attribute
         var: (ident)
-        type: (type_name (primitive_type)))
-    return: (type_name (primitive_type))))
+        type: (primitive_type))
+    return: (primitive_type)))

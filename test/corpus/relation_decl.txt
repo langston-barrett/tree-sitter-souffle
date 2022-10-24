@@ -23,7 +23,7 @@ Unary relation declaration
       (ident)
     (attribute
       var: (ident)
-      type: (type_name (primitive_type)))))
+      type: (primitive_type))))
 
 ============================================================
 Unary relation declaration (no space)
@@ -39,7 +39,7 @@ Unary relation declaration (no space)
       (ident)
     (attribute
       var: (ident)
-      type: (type_name (primitive_type)))))
+      type: (primitive_type))))
 
 ============================================================
 Binary relation declaration
@@ -55,10 +55,10 @@ Binary relation declaration
       (ident)
     (attribute
       var: (ident)
-      type: (type_name (primitive_type)))
+      type: (primitive_type))
     (attribute
       var: (ident)
-      type: (type_name (qualified_name (ident))))))
+      type: (qualified_name (ident)))))
 
 ============================================================
 Unary domain
@@ -74,10 +74,10 @@ Unary domain
       (ident)
     (attribute
       var: (ident)
-      type: (type_name (qualified_name (ident))))
+      type: (qualified_name (ident)))
     (attribute
       var: (ident)
-      type: (type_name (qualified_name (ident))))
+      type: (qualified_name (ident)))
     (choice_domain (ident))))
 
 ============================================================
@@ -94,10 +94,10 @@ Binary choice domain
       (ident)
     (attribute
       var: (ident)
-      type: (type_name (qualified_name (ident))))
+      type: (qualified_name (ident)))
     (attribute
       var: (ident)
-      type: (type_name (qualified_name (ident))))
+      type: (qualified_name (ident)))
     (choice_domain (ident) (ident))))
 
 ============================================================
@@ -114,10 +114,10 @@ Binary choice domain (no parens)
       (ident)
     (attribute
       var: (ident)
-      type: (type_name (qualified_name (ident))))
+      type: (qualified_name (ident)))
     (attribute
       var: (ident)
-      type: (type_name (qualified_name (ident))))
+      type: (qualified_name (ident)))
     (choice_domain (ident) (ident))))
 
 ============================================================
@@ -134,10 +134,10 @@ Parenthesized binary choice domain
       (ident)
     (attribute
       var: (ident)
-      type: (type_name (qualified_name (ident))))
+      type: (qualified_name (ident)))
     (attribute
       var: (ident)
-      type: (type_name (qualified_name (ident))))
+      type: (qualified_name (ident)))
     (choice_domain (ident) (ident) (ident) (ident))))
 
 ============================================================
