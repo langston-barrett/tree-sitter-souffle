@@ -514,8 +514,12 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_directive_qualifier"
+          "type": "FIELD",
+          "name": "directive",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_directive_qualifier"
+          }
         },
         {
           "type": "SEQ",

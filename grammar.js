@@ -214,7 +214,7 @@ module.exports = grammar({
     // https://souffle-lang.github.io/directives#directive
     //
     directive: $ => seq(
-      $._directive_qualifier,  // TODO(17): Make into a field
+      field('directive', $._directive_qualifier),
       commas1(field('relation', $.qualified_name)),
       optional(parens(commas(seq(
         field('key', $.ident),

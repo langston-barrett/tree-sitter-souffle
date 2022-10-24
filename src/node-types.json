@@ -1111,6 +1111,28 @@
     "type": "directive",
     "named": true,
     "fields": {
+      "directive": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": ".input",
+            "named": false
+          },
+          {
+            "type": ".limitsize",
+            "named": false
+          },
+          {
+            "type": ".output",
+            "named": false
+          },
+          {
+            "type": ".printsize",
+            "named": false
+          }
+        ]
+      },
       "key": {
         "multiple": true,
         "required": false,
