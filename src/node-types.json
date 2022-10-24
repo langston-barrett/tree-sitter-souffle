@@ -733,22 +733,7 @@
           }
         ]
       }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "directive_qualifier",
-          "named": true
-        }
-      ]
     }
-  },
-  {
-    "type": "directive_qualifier",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "disjunction",

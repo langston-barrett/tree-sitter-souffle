@@ -8,8 +8,7 @@ Input directive
 
 (program
   (directive
-    (directive_qualifier)
-    (qualified_name (ident))))
+    relation: (qualified_name (ident))))
 
 ============================================================
 Output directive
@@ -21,9 +20,7 @@ Output directive
 
 (program
   (directive
-    (directive_qualifier)
-    relation:
-      (qualified_name (ident))
+    relation: (qualified_name (ident))
     key: (ident)
     value: (ident)))
 
@@ -35,7 +32,9 @@ Qualified output directive
 
 ---
 
-(program (directive (directive_qualifier) (qualified_name (ident) (ident)))) 
+(program
+  (directive
+    relation: (qualified_name (ident) (ident))))
 
 ============================================================
 Output directive with empty parens
@@ -45,7 +44,9 @@ Output directive with empty parens
 
 ---
 
-(program (directive (directive_qualifier) (qualified_name (ident)))) 
+(program
+  (directive
+    relation: (qualified_name (ident)))) 
 
 ============================================================
 Output directive with compress
@@ -57,7 +58,6 @@ Output directive with compress
 
 (program
   (directive
-    (directive_qualifier)
     relation: (qualified_name (ident))
     key: (ident)
     value: (ident)))
@@ -72,9 +72,8 @@ Output multiple
 
 (program
   (directive
-    (directive_qualifier)
-    (qualified_name (ident))
-    (qualified_name (ident))))
+    relation: (qualified_name (ident))
+    relation: (qualified_name (ident))))
 
 ============================================================
 Qualified name with ".type" (TODO(#8))
@@ -84,4 +83,4 @@ Qualified name with ".type" (TODO(#8))
 
 ---
 
-(program (directive (directive_qualifier) (qualified_name (ident))) (ERROR (UNEXPECTED 'o'))) 
+(program (directive (qualified_name (ident))) (ERROR (UNEXPECTED 'o'))) 

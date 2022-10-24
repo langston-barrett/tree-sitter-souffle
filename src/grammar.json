@@ -515,7 +515,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "directive_qualifier"
+          "name": "_directive_qualifier"
         },
         {
           "type": "SEQ",
@@ -648,7 +648,7 @@
         }
       ]
     },
-    "directive_qualifier": {
+    "_directive_qualifier": {
       "type": "CHOICE",
       "members": [
         {
