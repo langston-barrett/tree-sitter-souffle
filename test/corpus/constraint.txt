@@ -28,5 +28,5 @@ rule() :- 0 = y.
       (disjunction
         (conjunction
           (comparison
-            left: (argument (constant (number (integer (decimal)))))
-            right: (argument (variable (ident))))))))
+            left: (constant (number (integer (decimal))))
+            right: (variable (ident)))))))
