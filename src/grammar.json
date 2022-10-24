@@ -3240,28 +3240,45 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "type_synonym"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "type_synonym"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "subtype"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "type_union"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "type_record"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "adt"
+                }
+              ]
             },
             {
               "type": "SYMBOL",
-              "name": "subtype"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "type_union"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "type_record"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "adt"
+              "name": "legacy_bare_type_decl"
             }
           ]
         }
       ]
+    },
+    "legacy_bare_type_decl": {
+      "type": "FIELD",
+      "name": "name",
+      "content": {
+        "type": "SYMBOL",
+        "name": "ident"
+      }
     },
     "subtype": {
       "type": "SEQ",
