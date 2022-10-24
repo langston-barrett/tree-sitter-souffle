@@ -195,7 +195,7 @@ zero(max X : { some(X) }).
       relation: (qualified_name (ident))
       argument:
         (aggregator
-          (variable (ident))
+          head: (variable (ident))
           body:
             (disjunction
               (conjunction

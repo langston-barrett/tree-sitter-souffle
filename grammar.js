@@ -490,13 +490,13 @@ module.exports = grammar({
         seq(
           choice(
             seq(
-              choice(
+              field('aggregator', choice(
                 'max',
                 'mean',
                 'min',
                 'sum',
-              ),
-              $._argument,
+              )),
+              field('head', $._argument),
             ),
             'count'
           ),
@@ -545,14 +545,14 @@ module.exports = grammar({
     //
     // https://souffle-lang.github.io/relations#relation-declaration
     // https://github.com/souffle-lang/souffle/blob/2.3/src/parser/parser.yy#L463
-    //
-    // TODO(#17): Fields
     relation_decl: $ => seq(
       '.decl',
       field('head', commas($.ident)),
-      parens(commas($.attribute)),
+      parens(commas(field('attribute', $.attribute))),
       field('qualifier', repeat($._relation_qualifier)),
-      optional($.choice_domain),
+      // TODO(lb): Changing the field name to choice-domain results in a
+      // tree-sitter bug
+      optional(field('choice', $.choice_domain)),
     ),
 
     // https://github.com/souffle-lang/souffle/blob/2.3/src/parser/parser.yy#L537

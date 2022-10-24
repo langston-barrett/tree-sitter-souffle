@@ -1944,29 +1944,37 @@
                       "type": "SEQ",
                       "members": [
                         {
-                          "type": "CHOICE",
-                          "members": [
-                            {
-                              "type": "STRING",
-                              "value": "max"
-                            },
-                            {
-                              "type": "STRING",
-                              "value": "mean"
-                            },
-                            {
-                              "type": "STRING",
-                              "value": "min"
-                            },
-                            {
-                              "type": "STRING",
-                              "value": "sum"
-                            }
-                          ]
+                          "type": "FIELD",
+                          "name": "aggregator",
+                          "content": {
+                            "type": "CHOICE",
+                            "members": [
+                              {
+                                "type": "STRING",
+                                "value": "max"
+                              },
+                              {
+                                "type": "STRING",
+                                "value": "mean"
+                              },
+                              {
+                                "type": "STRING",
+                                "value": "min"
+                              },
+                              {
+                                "type": "STRING",
+                                "value": "sum"
+                              }
+                            ]
+                          }
                         },
                         {
-                          "type": "SYMBOL",
-                          "name": "_argument"
+                          "type": "FIELD",
+                          "name": "head",
+                          "content": {
+                            "type": "SYMBOL",
+                            "name": "_argument"
+                          }
                         }
                       ]
                     },
@@ -3001,8 +3009,12 @@
                   "type": "CHOICE",
                   "members": [
                     {
-                      "type": "SYMBOL",
-                      "name": "attribute"
+                      "type": "FIELD",
+                      "name": "attribute",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "attribute"
+                      }
                     },
                     {
                       "type": "BLANK"
@@ -3019,8 +3031,12 @@
                         "value": ","
                       },
                       {
-                        "type": "SYMBOL",
-                        "name": "attribute"
+                        "type": "FIELD",
+                        "name": "attribute",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "attribute"
+                        }
                       }
                     ]
                   }
@@ -3048,8 +3064,12 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "choice_domain"
+              "type": "FIELD",
+              "name": "choice",
+              "content": {
+                "type": "SYMBOL",
+                "name": "choice_domain"
+              }
             },
             {
               "type": "BLANK"
