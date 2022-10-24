@@ -61,4 +61,7 @@ Init
 
 ---
 
-(program (component_init (ident) (component_type (ident))))
+(program
+  (component_init
+    name: (ident)
+    component: (component_type name: (ident))))
