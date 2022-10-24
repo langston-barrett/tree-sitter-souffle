@@ -109,7 +109,7 @@ module.exports = grammar({
       $.component_decl,
       $.component_init,
       $.directive,
-      $.rule,
+      $._rule,
       $.fact,
       $.relation_decl,
       $.type_decl,
@@ -183,7 +183,7 @@ module.exports = grammar({
         $.directive,
         $.fact,
         $.relation_decl,
-        $.rule,
+        $._rule,
         $.type_decl,
         $.preprocessor,
         seq('.override', $.ident),
@@ -246,7 +246,7 @@ module.exports = grammar({
 
     bool: $ => choice('true', 'false'),
 
-    rule: $ => choice(
+    _rule: $ => choice(
       $.monotonic_rule,
       $.subsumptive_rule,
     ),

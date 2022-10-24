@@ -503,6 +503,10 @@
             "named": true
           },
           {
+            "type": "monotonic_rule",
+            "named": true
+          },
+          {
             "type": "preprocessor",
             "named": true
           },
@@ -511,7 +515,7 @@
             "named": true
           },
           {
-            "type": "rule",
+            "type": "subsumptive_rule",
             "named": true
           },
           {
@@ -1090,6 +1094,10 @@
           "named": true
         },
         {
+          "type": "monotonic_rule",
+          "named": true
+        },
+        {
           "type": "pragma",
           "named": true
         },
@@ -1102,7 +1110,7 @@
           "named": true
         },
         {
-          "type": "rule",
+          "type": "subsumptive_rule",
           "named": true
         },
         {
@@ -1225,25 +1233,6 @@
     "type": "relation_qualifier",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "rule",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "monotonic_rule",
-          "named": true
-        },
-        {
-          "type": "subsumptive_rule",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "subsumptive_rule",

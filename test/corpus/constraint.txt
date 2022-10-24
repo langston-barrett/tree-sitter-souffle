@@ -7,12 +7,11 @@ rule() :- true.
 ---
 
 (program
-  (rule
-    (monotonic_rule
-      head: (atom relation: (qualified_name (ident)))
-      body:
-        (disjunction
-          (conjunction (constraint (bool)))))))
+  (monotonic_rule
+    head: (atom relation: (qualified_name (ident)))
+    body:
+      (disjunction
+        (conjunction (constraint (bool))))))
 
 ============================================================
 Equal
@@ -23,13 +22,12 @@ rule() :- 0 = y.
 ---
 
 (program
-  (rule
-    (monotonic_rule
-      head: (atom relation: (qualified_name (ident)))
-      body:
-        (disjunction
-          (conjunction
-            (constraint
-              (comparison
-                left: (argument (constant (number (integer (decimal)))))
-                right: (argument (variable (ident))))))))))
+  (monotonic_rule
+    head: (atom relation: (qualified_name (ident)))
+    body:
+      (disjunction
+        (conjunction
+          (constraint
+            (comparison
+              left: (argument (constant (number (integer (decimal)))))
+              right: (argument (variable (ident)))))))))
