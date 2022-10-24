@@ -586,7 +586,7 @@
                               "name": "value",
                               "content": {
                                 "type": "SYMBOL",
-                                "name": "directive_value"
+                                "name": "_directive_value"
                               }
                             }
                           ]
@@ -625,7 +625,7 @@
                                 "name": "value",
                                 "content": {
                                   "type": "SYMBOL",
-                                  "name": "directive_value"
+                                  "name": "_directive_value"
                                 }
                               }
                             ]
@@ -669,7 +669,7 @@
         }
       ]
     },
-    "directive_value": {
+    "_directive_value": {
       "type": "CHOICE",
       "members": [
         {

@@ -219,7 +219,7 @@ module.exports = grammar({
       optional(parens(commas(seq(
         field('key', $.ident),
         '=',
-        field('value', $.directive_value)
+        field('value', $._directive_value)
       ))))
     ),
 
@@ -238,7 +238,7 @@ module.exports = grammar({
     //
     // https://souffle-lang.github.io/directives#directive-value
     //
-    directive_value: $ => choice(
+    _directive_value: $ => choice(
       $.string,
       $.ident,
       $.number,
