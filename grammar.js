@@ -323,11 +323,9 @@ module.exports = grammar({
       $.contains,
     ),
 
-    // TODO(#17): Make arguments into a field
-    match: $ => seq('match', parens(commas($._argument))),
+    match: $ => seq('match', parens(commas(field('argument', $._argument)))),
 
-    // TODO(#17): Make arguments into a field
-    contains: $ => seq('contains', parens(commas($._argument))),
+    contains: $ => seq('contains', parens(commas(field('argument', $._argument)))),
 
     comparison: $ => seq(
       field('left', $._argument),
@@ -439,13 +437,12 @@ module.exports = grammar({
       ')',
     ),
 
-    // TODO(#17): Fields
     functor_call: $ => seq(
-      choice($.user_defined_functor, $.intrinsic_functor),
-      parens(commas($._argument)),
+      field('functor', choice($.user_defined_functor, $.intrinsic_functor)),
+      parens(commas(field('argument', $._argument))),
     ),
 
-    user_defined_functor: $ => seq('@', $.ident),
+    user_defined_functor: $ => seq('@', field('name', $.ident)),
 
     // intrinsic_functor ::= 'ord' | 'to_float' | 'to_number' | 'to_string' | 'to_unsigned' | 'cat' | 'strlen' | 'substr' | 'autoinc'
     //

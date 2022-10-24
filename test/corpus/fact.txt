@@ -239,8 +239,8 @@ fact(to_string(0)).
         relation: (qualified_name (ident))
         argument:
           (functor_call
-            (intrinsic_functor)
-            (constant (number (integer (decimal))))))))
+            functor: (intrinsic_functor)
+            argument: (constant (number (integer (decimal))))))))
 
 ============================================================
 Intrinsic functor fact (cat, no spaces)
@@ -257,9 +257,9 @@ fact(cat("",v)).
         relation: (qualified_name (ident))
         argument:
           (functor_call
-            (intrinsic_functor)
-            (constant (string))
-            (variable (ident))))))
+            functor: (intrinsic_functor)
+            argument: (constant (string))
+            argument: (variable (ident))))))
 
 ============================================================
 User-defined functor fact
@@ -276,5 +276,5 @@ fact(@functor(0)).
         relation: (qualified_name (ident))
         argument:
           (functor_call
-            (user_defined_functor (ident))
-            (constant (number (integer (decimal))))))))
+            functor: (user_defined_functor name: (ident))
+            argument: (constant (number (integer (decimal))))))))
