@@ -1806,6 +1806,64 @@
             "named": true
           }
         ]
+      },
+      "qualifier": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "brie",
+            "named": false
+          },
+          {
+            "type": "btree",
+            "named": false
+          },
+          {
+            "type": "btree_delete",
+            "named": false
+          },
+          {
+            "type": "eqrel",
+            "named": false
+          },
+          {
+            "type": "inline",
+            "named": false
+          },
+          {
+            "type": "input",
+            "named": false
+          },
+          {
+            "type": "magic",
+            "named": false
+          },
+          {
+            "type": "no_inline",
+            "named": false
+          },
+          {
+            "type": "no_magic",
+            "named": false
+          },
+          {
+            "type": "output",
+            "named": false
+          },
+          {
+            "type": "overridable",
+            "named": false
+          },
+          {
+            "type": "override",
+            "named": false
+          },
+          {
+            "type": "printsize",
+            "named": false
+          }
+        ]
       }
     },
     "children": {
@@ -1819,18 +1877,9 @@
         {
           "type": "choice_domain",
           "named": true
-        },
-        {
-          "type": "relation_qualifier",
-          "named": true
         }
       ]
     }
-  },
-  {
-    "type": "relation_qualifier",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "subsumptive_rule",
@@ -2107,17 +2156,28 @@
         "required": true,
         "types": [
           {
-            "type": "unary_operator",
-            "named": true
+            "type": "!",
+            "named": false
+          },
+          {
+            "type": "-",
+            "named": false
+          },
+          {
+            "type": "bnot",
+            "named": false
+          },
+          {
+            "type": "lnot",
+            "named": false
+          },
+          {
+            "type": "~",
+            "named": false
           }
         ]
       }
     }
-  },
-  {
-    "type": "unary_operator",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "user_defined_functor",

@@ -549,16 +549,17 @@ module.exports = grammar({
     // https://souffle-lang.github.io/relations#relation-declaration
     // https://github.com/souffle-lang/souffle/blob/2.3/src/parser/parser.yy#L463
     //
+    // TODO(#17): Fields
     relation_decl: $ => seq(
       '.decl',
       field('head', commas($.ident)),
       parens(commas($.attribute)),
-      repeat($.relation_qualifier),
+      field('qualifier', repeat($._relation_qualifier)),
       optional($.choice_domain),
     ),
 
     // https://github.com/souffle-lang/souffle/blob/2.3/src/parser/parser.yy#L537
-    relation_qualifier: $ => choice(
+    _relation_qualifier: $ => choice(
       'brie',
       'btree',
       'btree_delete',

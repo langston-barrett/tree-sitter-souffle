@@ -58,8 +58,7 @@ Binary relation declaration
       type: (type_name (primitive_type)))
     (attribute
       var: (ident)
-      type: (type_name (qualified_name (ident))))
-    (relation_qualifier)))
+      type: (type_name (qualified_name (ident))))))
 
 ============================================================
 Unary domain
