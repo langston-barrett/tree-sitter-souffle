@@ -29,7 +29,7 @@ The grammar is fairly complete. It parses:
 - [ddisasm][ddisasm]
 - The [Soufflé benchmarks][benchmarks]
 
-There are a few [known issues][issues].
+There are a few [known issues][bugs].
 
 ## Use-Cases
 
@@ -108,9 +108,9 @@ This script downloads the Soufflé, ddisasm, cclyzer++, and other repos and atte
 4. `cargo publish`
 5. Release the pre-release created by CI
 
+[bugs]: https://github.com/langston-barrett/tree-sitter-souffle/issues?q=is%3Aissue+is%3Aopen+label%3Abug 
 [benchmarks]: https://github.com/souffle-lang/benchmarks/
 [ddisasm]: https://github.com/grammatech/ddisasm
-[issues]: https://github.com/langston-barrett/tree-sitter-souffle/issues
 [queries]: https://tree-sitter.github.io/tree-sitter/using-parsers#pattern-matching-with-queries
 [souffle]: https://souffle-lang.github.io/index.html
 [tree-sitter]: https://tree-sitter.github.io/tree-sitter/
