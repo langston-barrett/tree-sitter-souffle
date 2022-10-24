@@ -329,13 +329,17 @@ module.exports = grammar({
     //
     //
     //
+    // TODO(lb): Add atom field
     fact: $ => seq($.atom, '.'),
 
     // atom ::= qualified_name '(' ( argument ( ',' argument )* )? ')'
     //
     // https://souffle-lang.github.io/facts#atom
     //
-    atom: $ => seq($.qualified_name, parens(commas($.argument))),
+    atom: $ => seq(
+      field('relation', $.qualified_name),
+      parens(commas(field('argument', $.argument)))
+    ),
 
     // argument ::=
     //     constant
