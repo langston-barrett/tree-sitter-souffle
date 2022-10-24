@@ -149,5 +149,4 @@ Redefine built-in
 
 ---
 
-(program (relation_decl (ident))) 
-
+(program (relation_decl (ident)))

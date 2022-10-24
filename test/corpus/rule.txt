@@ -216,3 +216,19 @@ rule() :- contains(x, y).
               (contains
                 (argument (variable (ident)))
                 (argument (variable (ident))))))))))
+
+============================================================
+Rule for built-in (TODO(#10))
+============================================================
+
+log(x) :- exp(x).
+
+---
+
+(program
+  (fact
+    (atom
+      (qualified_name (ident))
+      (argument (variable (ident))))
+      (ERROR (argument (functor_call (intrinsic_functor) (argument (variable (ident))))))))
+
