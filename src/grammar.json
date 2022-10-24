@@ -1524,8 +1524,12 @@
                       "type": "CHOICE",
                       "members": [
                         {
-                          "type": "SYMBOL",
-                          "name": "_argument"
+                          "type": "FIELD",
+                          "name": "argument",
+                          "content": {
+                            "type": "SYMBOL",
+                            "name": "_argument"
+                          }
                         },
                         {
                           "type": "BLANK"
@@ -1542,8 +1546,12 @@
                             "value": ","
                           },
                           {
-                            "type": "SYMBOL",
-                            "name": "_argument"
+                            "type": "FIELD",
+                            "name": "argument",
+                            "content": {
+                              "type": "SYMBOL",
+                              "name": "_argument"
+                            }
                           }
                         ]
                       }
