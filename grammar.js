@@ -484,7 +484,8 @@ module.exports = grammar({
     //   'range' '(' argument ',' argument (',' argument)? ')'
     //
     // https://souffle-lang.github.io/aggregates#aggregator
-    // TODO(#17): Fields
+    //
+    // TODO(lb): Refactor into something more conceptual
     aggregator: $ => seq(
       choice(
         seq(
