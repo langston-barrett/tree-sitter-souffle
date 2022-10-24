@@ -189,7 +189,7 @@
                           "name": "type",
                           "content": {
                             "type": "SYMBOL",
-                            "name": "type_name"
+                            "name": "_type_name"
                           }
                         },
                         {
@@ -224,7 +224,7 @@
                             "name": "type",
                             "content": {
                               "type": "SYMBOL",
-                              "name": "type_name"
+                              "name": "_type_name"
                             }
                           },
                           {
@@ -257,7 +257,7 @@
           "name": "return",
           "content": {
             "type": "SYMBOL",
-            "name": "type_name"
+            "name": "_type_name"
           }
         },
         {
@@ -1701,7 +1701,7 @@
           "name": "type",
           "content": {
             "type": "SYMBOL",
-            "name": "type_name"
+            "name": "_type_name"
           }
         },
         {
@@ -3228,7 +3228,7 @@
           "name": "subtype",
           "content": {
             "type": "SYMBOL",
-            "name": "type_name"
+            "name": "_type_name"
           }
         }
       ]
@@ -3304,7 +3304,7 @@
           "name": "right",
           "content": {
             "type": "SYMBOL",
-            "name": "type_name"
+            "name": "_type_name"
           }
         }
       ]
@@ -3329,7 +3329,7 @@
           "name": "right",
           "content": {
             "type": "SYMBOL",
-            "name": "type_name"
+            "name": "_type_name"
           }
         }
       ]
@@ -3360,7 +3360,7 @@
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "type_name"
+                  "name": "_type_name"
                 },
                 {
                   "type": "REPEAT1",
@@ -3373,7 +3373,7 @@
                       },
                       {
                         "type": "SYMBOL",
-                        "name": "type_name"
+                        "name": "_type_name"
                       }
                     ]
                   }
@@ -3568,7 +3568,7 @@
         }
       ]
     },
-    "type_name": {
+    "_type_name": {
       "type": "CHOICE",
       "members": [
         {
@@ -3622,7 +3622,7 @@
           "name": "type",
           "content": {
             "type": "SYMBOL",
-            "name": "type_name"
+            "name": "_type_name"
           }
         }
       ]
