@@ -6,7 +6,7 @@ nullary_fact().
 
 ---
 
-(program (fact (atom relation: (qualified_name (ident)))))
+(program (fact atom: (atom relation: (qualified_name (ident)))))
 
 ============================================================
 Unary underscore fact
@@ -18,6 +18,7 @@ zero(_).
 
 (program
   (fact
+    atom:
     (atom
       relation: (qualified_name (ident))
       argument: (argument (anonymous)))))
@@ -32,6 +33,7 @@ zero(0).
 
 (program
   (fact
+    atom:
     (atom
       relation: (qualified_name (ident))
       argument: (argument (constant (number (integer (decimal))))))))
@@ -46,6 +48,7 @@ zero(0b0).
 
 (program
   (fact
+    atom:
     (atom
       relation: (qualified_name (ident))
       argument: (argument (constant (number (integer (binary))))))))
@@ -60,6 +63,7 @@ fact(0xFE, 0xa1).
 
 (program
   (fact
+    atom:
     (atom
       relation: (qualified_name (ident))
       argument: (argument (constant (number (integer (hex)))))
@@ -75,6 +79,7 @@ fact(-0.13).
 
 (program
   (fact
+    atom:
     (atom
       relation: (qualified_name (ident))
       argument: (argument (constant (number (float)))))))
@@ -89,6 +94,7 @@ str("string").
 
 (program
   (fact
+    atom:
     (atom
       relation: (qualified_name (ident))
       argument: (argument (constant (string))))))
@@ -103,6 +109,7 @@ str("\"").
 
 (program
   (fact
+    atom:
     (atom
       relation: (qualified_name (ident))
       argument: (argument (constant (string))))))
@@ -117,6 +124,7 @@ var(v).
 
 (program
   (fact
+    atom:
     (atom
       relation: (qualified_name (ident))
       argument: (argument (variable (ident))))))
@@ -131,6 +139,7 @@ zero(as(0, T)).
 
 (program
   (fact
+    atom:
     (atom
       relation: (qualified_name (ident))
       argument:
@@ -151,6 +160,7 @@ zero($A).
 
 (program
   (fact
+    atom:
     (atom
       relation: (qualified_name (ident))
       argument:
@@ -166,6 +176,7 @@ zero(max X : { some(X) }).
 
 (program
   (fact
+    atom:
     (atom
       relation: (qualified_name (ident))
       argument:
@@ -189,16 +200,17 @@ fact(range(0, 1)).
 
 (program
   (fact
-    (atom
-      relation: (qualified_name (ident))
-      argument:
-        (argument
-          (aggregator
-            (range
-              low:
-                (argument (constant (number (integer (decimal)))))
-              high:
-                (argument (constant (number (integer (decimal)))))))))))
+    atom:
+      (atom
+        relation: (qualified_name (ident))
+        argument:
+          (argument
+            (aggregator
+              (range
+                low:
+                  (argument (constant (number (integer (decimal)))))
+                high:
+                  (argument (constant (number (integer (decimal)))))))))))
 
 ============================================================
 Intrinsic functor fact
@@ -210,13 +222,14 @@ fact(to_string(0)).
 
 (program
   (fact
-    (atom
-      relation: (qualified_name (ident))
-      argument:
-        (argument
-          (functor_call
-            (intrinsic_functor)
-            (argument (constant (number (integer (decimal))))))))))
+    atom:
+      (atom
+        relation: (qualified_name (ident))
+        argument:
+          (argument
+            (functor_call
+              (intrinsic_functor)
+              (argument (constant (number (integer (decimal))))))))))
 
 ============================================================
 Intrinsic functor fact (cat, no spaces)
@@ -228,14 +241,15 @@ fact(cat("",v)).
 
 (program
   (fact
-    (atom
-      relation: (qualified_name (ident))
-      argument:
-        (argument
-          (functor_call
-            (intrinsic_functor)
-            (argument (constant (string)))
-            (argument (variable (ident))))))))
+    atom:
+      (atom
+        relation: (qualified_name (ident))
+        argument:
+          (argument
+            (functor_call
+              (intrinsic_functor)
+              (argument (constant (string)))
+              (argument (variable (ident))))))))
 
 ============================================================
 User-defined functor fact
@@ -247,10 +261,11 @@ fact(@functor(0)).
 
 (program
   (fact
-    (atom
-      relation: (qualified_name (ident))
-      argument:
-        (argument
-          (functor_call
-            (user_defined_functor (ident))
-            (argument (constant (number (integer (decimal))))))))))
+    atom:
+      (atom
+        relation: (qualified_name (ident))
+        argument:
+          (argument
+            (functor_call
+              (user_defined_functor (ident))
+              (argument (constant (number (integer (decimal))))))))))
