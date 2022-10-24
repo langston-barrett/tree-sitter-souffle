@@ -151,11 +151,14 @@ module.exports = grammar({
     //
     functor_decl: $ => seq(
       '.functor',
-      $.ident,
+      field('name', $.ident),
       // TODO(lb): Soufflé docs don't reflect that $.type_name may be used here
-      parens(commas(choice($.type_name, $.attribute))),
+      parens(commas(choice(
+        field('type', $.type_name),
+        field('attribute', $.attribute)
+      ))),
       ':',
-      $.type_name,
+      field('return', $.type_name),
       optional('stateful'),
     ),
 

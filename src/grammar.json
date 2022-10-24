@@ -161,8 +161,12 @@
           "value": ".functor"
         },
         {
-          "type": "SYMBOL",
-          "name": "ident"
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "ident"
+          }
         },
         {
           "type": "SEQ",
@@ -181,12 +185,20 @@
                       "type": "CHOICE",
                       "members": [
                         {
-                          "type": "SYMBOL",
-                          "name": "type_name"
+                          "type": "FIELD",
+                          "name": "type",
+                          "content": {
+                            "type": "SYMBOL",
+                            "name": "type_name"
+                          }
                         },
                         {
-                          "type": "SYMBOL",
-                          "name": "attribute"
+                          "type": "FIELD",
+                          "name": "attribute",
+                          "content": {
+                            "type": "SYMBOL",
+                            "name": "attribute"
+                          }
                         }
                       ]
                     },
@@ -208,12 +220,20 @@
                         "type": "CHOICE",
                         "members": [
                           {
-                            "type": "SYMBOL",
-                            "name": "type_name"
+                            "type": "FIELD",
+                            "name": "type",
+                            "content": {
+                              "type": "SYMBOL",
+                              "name": "type_name"
+                            }
                           },
                           {
-                            "type": "SYMBOL",
-                            "name": "attribute"
+                            "type": "FIELD",
+                            "name": "attribute",
+                            "content": {
+                              "type": "SYMBOL",
+                              "name": "attribute"
+                            }
                           }
                         ]
                       }
@@ -233,8 +253,12 @@
           "value": ":"
         },
         {
-          "type": "SYMBOL",
-          "name": "type_name"
+          "type": "FIELD",
+          "name": "return",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type_name"
+          }
         },
         {
           "type": "CHOICE",
