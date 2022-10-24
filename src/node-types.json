@@ -695,35 +695,43 @@
     "type": "directive",
     "named": true,
     "fields": {
+      "key": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
       "relation": {
         "multiple": true,
         "required": true,
         "types": [
           {
-            "type": ",",
-            "named": false
-          },
-          {
             "type": "qualified_name",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "directive_value",
             "named": true
           }
         ]
       }
     },
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
           "type": "directive_qualifier",
-          "named": true
-        },
-        {
-          "type": "directive_value",
-          "named": true
-        },
-        {
-          "type": "ident",
           "named": true
         }
       ]
