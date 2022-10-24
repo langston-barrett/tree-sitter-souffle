@@ -121,3 +121,12 @@ Redefinition of primitives
 
 (program (type_decl (type_synonym (ident) (type_name (primitive_type)))))
 
+============================================================
+Legacy bare type declaration
+============================================================
+
+.type t
+
+---
+
+(program (type_decl (legacy_bare_type_decl (ident))))

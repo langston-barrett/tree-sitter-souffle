@@ -1,37 +1,6 @@
 # TODO(lb): Needs updating grammar around 'max' aggregate
 souffle/tests/example/speed/speed.dl
 
-# TODO(lb): Legacy .type declarations
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-antlr/2-object-sensitive+heap.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-antlr/gen_8582022681273573077.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-bloat/2-object-sensitive+heap.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-bloat/gen_5989446913460347053.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-chart/2-object-sensitive+heap.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-chart/gen_5756251730660909578.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-eclipse/2-object-sensitive+heap.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-eclipse/gen_6323668868817656338.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-fop/2-object-sensitive+heap.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-fop/gen_4417396803994489719.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-hsqldb/2-object-sensitive+heap.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-hsqldb/gen_2835977963994416329.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-jython/2-object-sensitive+heap.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-jython/gen_4393280792315813991.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-luindex/2-object-sensitive+heap.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-luindex/gen_2028414306322070500.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-pmd/2-object-sensitive+heap.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-pmd/gen_633338290938405427.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-xalan/2-object-sensitive+heap.dl
-souffle-bench/benchmarks/2-object-sensitive+heap/souffle-xalan/gen_5431481266520657074.dl
-souffle-bench/benchmarks/components/components.dl
-souffle-bench/benchmarks/nfsa2fsa/nfsa2fsa.dl
-souffle-bench/benchmarks/orbits/orbits.dl
-souffle-bench/benchmarks/pointsto/pointsto.dl
-souffle/tests/semantic/disjoint_names2/disjoint_names2.dl
-souffle/tests/semantic/type_system8/type_system8.dl
-vandal/datalog/demo_analyses.dl
-vandal/datalog/lib/types.dl
-vandal/datalog/lib/vandal.dl
-
 # TODO(lb): Qualified names with '.type' in them, e.g., bar.type.foo
 cclyzer++/datalog/debug.project
 

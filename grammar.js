@@ -580,8 +580,6 @@ module.exports = grammar({
         choice(
           '.number_type',
           '.symbol_type',
-          // TODO(#9): This causes the test "Redefinition of primitives" to fail
-          // '.type',
         ),
       ),
       field('subtype',
@@ -596,13 +594,18 @@ module.exports = grammar({
     type_decl: $ => seq(
       '.type',
       choice(
-        $.type_synonym,
-        $.subtype,
-        $.type_union,
-        $.type_record,
-        $.adt,
+        choice(
+          $.type_synonym,
+          $.subtype,
+          $.type_union,
+          $.type_record,
+          $.adt,
+        ),
+        $.legacy_bare_type_decl
       )
     ),
+
+    legacy_bare_type_decl: $ => field('name', $.ident),
 
     subtype: $ => seq(
       field('left', $.ident),
