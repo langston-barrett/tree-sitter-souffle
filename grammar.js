@@ -329,8 +329,7 @@ module.exports = grammar({
     //
     //
     //
-    // TODO(lb): Add atom field
-    fact: $ => seq($.atom, '.'),
+    fact: $ => seq(field('atom', $.atom), '.'),
 
     // atom ::= qualified_name '(' ( argument ( ',' argument )* )? ')'
     //
