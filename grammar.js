@@ -388,7 +388,7 @@ module.exports = grammar({
     adt_constructor: $ => seq(
       '$',
       field('constructor', $.qualified_name),
-      optional(parens(commas($._argument))),
+      optional(parens(commas($._argument))),  // TODO(17): Make into a field
     ),
 
     record_constructor: $ => seq(brackets(commas($._argument))),
@@ -397,6 +397,7 @@ module.exports = grammar({
     //
     // https://souffle-lang.github.io/arguments#argument-value
     //
+    // NOTE: This is not anonymized because it is useful in tree-sitter queries.
     constant: $ => choice(
       $.ipv4,
       $.number,
@@ -407,11 +408,13 @@ module.exports = grammar({
     ipv4: $ => /[0-9]{0,3}\.[0-9]{0,3}\.[0-9]{0,3}\.[0-9]{0,3}/,
 
     string: $ => /"([^"]|\\")*"/,
+    // NOTE: This is not anonymized because it is useful in tree-sitter queries.
     number: $ => choice(
       $.float,
       $.integer,
       $.unsigned,
     ),
+    // NOTE: This is not anonymized because it is useful in tree-sitter queries.
     integer: $ => choice(
       $.decimal,
       $.hex,
@@ -436,6 +439,7 @@ module.exports = grammar({
       ')',
     ),
 
+    // TODO(#17): Fields
     functor_call: $ => seq(
       choice($.user_defined_functor, $.intrinsic_functor),
       parens(commas($._argument)),
@@ -448,6 +452,7 @@ module.exports = grammar({
     // https://souffle-lang.github.io/arguments#intrinsic-functor
     //
     // TODO(lb): Perhaps parse these only with the proper arity?
+    // NOTE: This is not anonymized because it is useful in tree-sitter queries.
     intrinsic_functor: $ => prec.left(2, choice(  // conflict: aggregator
       // math
       'acos',
@@ -482,6 +487,7 @@ module.exports = grammar({
     //   'range' '(' argument ',' argument (',' argument)? ')'
     //
     // https://souffle-lang.github.io/aggregates#aggregator
+    // TODO(#17): Fields
     aggregator: $ => seq(
       choice(
         seq(
@@ -517,7 +523,7 @@ module.exports = grammar({
       ))
     ),
 
-    unary_operator: $ => prec.left(1, choice(  // conflict: negation
+    _unary_operator: $ => prec.left(1, choice(  // conflict: negation
       'bnot',
       'lnot',
       '-',
@@ -525,7 +531,7 @@ module.exports = grammar({
       '!',
     )),
     unary_op: $ => prec.left(1, seq(
-      field('operator', $.unary_operator),
+      field('operator', $._unary_operator),
       field('operand', $._argument),
     )),
 
