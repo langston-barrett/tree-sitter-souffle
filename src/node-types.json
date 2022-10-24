@@ -611,11 +611,23 @@
           "named": true
         },
         {
-          "type": "constraint",
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "contains",
           "named": true
         },
         {
           "type": "disjunction",
+          "named": true
+        },
+        {
+          "type": "match",
           "named": true
         },
         {
@@ -643,33 +655,6 @@
         },
         {
           "type": "string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "constraint",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "bool",
-          "named": true
-        },
-        {
-          "type": "comparison",
-          "named": true
-        },
-        {
-          "type": "contains",
-          "named": true
-        },
-        {
-          "type": "match",
           "named": true
         }
       ]

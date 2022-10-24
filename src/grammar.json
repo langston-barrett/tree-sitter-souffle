@@ -1038,7 +1038,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "constraint"
+                  "name": "_constraint"
                 },
                 {
                   "type": "SEQ",
@@ -1089,7 +1089,7 @@
                       },
                       {
                         "type": "SYMBOL",
-                        "name": "constraint"
+                        "name": "_constraint"
                       },
                       {
                         "type": "SEQ",
@@ -1117,7 +1117,7 @@
         }
       ]
     },
-    "constraint": {
+    "_constraint": {
       "type": "CHOICE",
       "members": [
         {

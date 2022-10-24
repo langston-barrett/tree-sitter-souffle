@@ -11,7 +11,7 @@ rule() :- true.
     head: (atom relation: (qualified_name (ident)))
     body:
       (disjunction
-        (conjunction (constraint (bool))))))
+        (conjunction (bool)))))
 
 ============================================================
 Equal
@@ -27,7 +27,6 @@ rule() :- 0 = y.
     body:
       (disjunction
         (conjunction
-          (constraint
-            (comparison
-              left: (argument (constant (number (integer (decimal)))))
-              right: (argument (variable (ident)))))))))
+          (comparison
+            left: (argument (constant (number (integer (decimal)))))
+            right: (argument (variable (ident))))))))
