@@ -73,8 +73,10 @@ Binary record
     (type_record
       left:
         (ident)
-      (attribute var: (ident) type: (primitive_type))
-      (attribute var: (ident) type: (primitive_type)))))
+      field:
+        (attribute var: (ident) type: (primitive_type))
+      field:
+        (attribute var: (ident) type: (primitive_type)))))
 
 ============================================================
 Binary record (no spaces)

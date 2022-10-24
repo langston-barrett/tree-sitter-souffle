@@ -638,7 +638,7 @@ module.exports = grammar({
     type_record: $ => prec.left(1, seq(
       field('left', $.ident),
       '=',
-      brackets(commas($.attribute)),  // TODO(#17): Fields
+      brackets(commas(field('field', $.attribute))),
     )),
 
     adt: $ => prec.left(1, seq(
