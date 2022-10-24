@@ -43,16 +43,16 @@ rule(X) :- foo(X), bar(Y).
     head:
       (atom
         relation: (qualified_name (ident))
-        argument: (argument (variable (ident))))
+        argument: (variable (ident)))
     body:
       (disjunction
         (conjunction
           (atom
             relation: (qualified_name (ident))
-            argument: (argument (variable (ident))))
+            argument: (variable (ident)))
           (atom
             relation: (qualified_name (ident))
-            argument: (argument (variable (ident))))))))
+            argument: (variable (ident)))))))
 
 ============================================================
 Ternary conjunction
@@ -67,19 +67,19 @@ rule(X) :- foo(X1), bar(Y1), baz(Z1).
     head:
       (atom
         relation: (qualified_name (ident))
-        argument: (argument (variable (ident))))
+        argument: (variable (ident)))
     body:
       (disjunction
         (conjunction
           (atom
             relation: (qualified_name (ident))
-            argument: (argument (variable (ident))))
+            argument: (variable (ident)))
           (atom
             relation: (qualified_name (ident))
-            argument: (argument (variable (ident))))
+            argument: (variable (ident)))
           (atom
             relation: (qualified_name (ident))
-            argument: (argument (variable (ident))))))))
+            argument: (variable (ident)))))))
 
 ============================================================
 Binary disjunction
@@ -94,18 +94,18 @@ rule(X, Y) :- foo(X); bar(Y).
     head:
       (atom
         relation: (qualified_name (ident))
-        argument: (argument (variable (ident)))
-        argument: (argument (variable (ident))))
+        argument: (variable (ident))
+        argument: (variable (ident)))
     body:
       (disjunction
         (conjunction
           (atom
             relation: (qualified_name (ident))
-            argument: (argument (variable (ident)))))
+            argument: (variable (ident))))
         (conjunction
           (atom
             relation: (qualified_name (ident))
-            argument: (argument (variable (ident))))))))
+            argument: (variable (ident)))))))
 
 ============================================================
 Parenthesized binary disjunction
@@ -120,8 +120,8 @@ rule(X, Y) :- (foo(X); bar(Y)).
     head:
       (atom
         relation: (qualified_name (ident))
-        argument: (argument (variable (ident)))
-        argument: (argument (variable (ident))))
+        argument: (variable (ident))
+        argument: (variable (ident)))
     body:
       (disjunction
         (conjunction
@@ -129,11 +129,11 @@ rule(X, Y) :- (foo(X); bar(Y)).
             (conjunction
               (atom
             relation: (qualified_name (ident))
-            argument: (argument (variable (ident)))))
+            argument: (variable (ident))))
             (conjunction
               (atom
             relation: (qualified_name (ident))
-            argument: (argument (variable (ident))))))))))
+            argument: (variable (ident)))))))))
 
 ============================================================
 Range rule
@@ -148,21 +148,19 @@ rule(X) :- X = range(0,3).
     head:
       (atom
         relation: (qualified_name (ident))
-        argument: (argument (variable (ident))))
+        argument: (variable (ident)))
     body:
       (disjunction
         (conjunction
           (comparison
-            left:
-              (argument (variable (ident)))
+            left: (variable (ident))
             right:
-              (argument
-                (aggregator
-                  (range
-                    low: 
-                      (argument (constant (number (integer (decimal)))))
-                    high: 
-                      (argument (constant (number (integer (decimal)))))))))))))
+             (aggregator
+               (range
+                 low: 
+                   (constant (number (integer (decimal))))
+                 high: 
+                   (constant (number (integer (decimal)))))))))))
 
 ============================================================
 Query plan
@@ -178,13 +176,13 @@ rule(X) :- rule(X).
     head:
       (atom
         relation: (qualified_name (ident))
-        argument: (argument (variable (ident))))
+        argument: (variable (ident)))
     body:
       (disjunction
         (conjunction
           (atom
             relation: (qualified_name (ident))
-            argument: (argument (variable (ident))))))
+            argument: (variable (ident)))))
     plan:
       (query_plan)))
 
@@ -203,8 +201,8 @@ rule() :- contains(x, y).
       (disjunction
         (conjunction
           (contains
-            (argument (variable (ident)))
-            (argument (variable (ident))))))))
+            (variable (ident))
+            (variable (ident)))))))
 
 ============================================================
 Rule for built-in (TODO(#10))
@@ -214,10 +212,6 @@ log(x) :- exp(x).
 
 ---
 
-(program
-  (fact
-    (atom
-      (qualified_name (ident))
-      (argument (variable (ident))))
-      (ERROR (argument (functor_call (intrinsic_functor) (argument (variable (ident))))))))
+(program (fact (atom (qualified_name (ident)) (variable (ident))) (ERROR (functor_call (intrinsic_functor) (variable (ident)))))) 
+
 

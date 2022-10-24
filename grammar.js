@@ -323,12 +323,14 @@ module.exports = grammar({
       $.contains,
     ),
 
-    match: $ => seq('match', parens(commas($.argument))),
+    // TODO(#17): Make arguments into a field
+    match: $ => seq('match', parens(commas($._argument))),
 
-    contains: $ => seq('contains', parens(commas($.argument))),
+    // TODO(#17): Make arguments into a field
+    contains: $ => seq('contains', parens(commas($._argument))),
 
     comparison: $ => seq(
-      field('left', $.argument),
+      field('left', $._argument),
       field('operator', choice(
         '=',
         '!=',
@@ -337,7 +339,7 @@ module.exports = grammar({
         '<',
         '>',
       )),
-      field('right', $.argument),
+      field('right', $._argument),
     ),
 
     //
@@ -351,7 +353,7 @@ module.exports = grammar({
     //
     atom: $ => seq(
       field('relation', $.qualified_name),
-      parens(commas(field('argument', $.argument)))
+      parens(commas(field('argument', $._argument)))
     ),
 
     // argument ::=
@@ -368,14 +370,14 @@ module.exports = grammar({
     //
     // https://souffle-lang.github.io/arguments#argument-value
     //
-    argument: $ => choice(
+    _argument: $ => choice(
       $.anonymous,
       $.constant,
       $.variable,
       $.nil,
       $.record_constructor,
       $.adt_constructor,
-      seq('(', $.argument, ')'),
+      seq('(', $._argument, ')'),
       $.as,
       $.functor_call,
       $.aggregator,
@@ -386,10 +388,10 @@ module.exports = grammar({
     adt_constructor: $ => seq(
       '$',
       field('constructor', $.qualified_name),
-      optional(parens(commas($.argument))),
+      optional(parens(commas($._argument))),
     ),
 
-    record_constructor: $ => seq(brackets(commas($.argument))),
+    record_constructor: $ => seq(brackets(commas($._argument))),
 
     // constant ::= STRING | NUMBER | UNSIGNED | FLOAT
     //
@@ -428,7 +430,7 @@ module.exports = grammar({
     as: $ => seq(
       'as',
       '(',
-      field('expr', $.argument),
+      field('expr', $._argument),
       ',',
       field('type', $.type_name),
       ')',
@@ -436,7 +438,7 @@ module.exports = grammar({
 
     functor_call: $ => seq(
       choice($.user_defined_functor, $.intrinsic_functor),
-      parens(commas($.argument)),
+      parens(commas($._argument)),
     ),
 
     user_defined_functor: $ => seq('@', $.ident),
@@ -491,7 +493,7 @@ module.exports = grammar({
                 'min',
                 'sum',
               ),
-              $.argument,
+              $._argument,
             ),
             'count'
           ),
@@ -505,12 +507,12 @@ module.exports = grammar({
     range: $ => seq(
       'range',
       parens(seq(
-        field('low', $.argument),
+        field('low', $._argument),
         ',',
-        field('high', $.argument),
+        field('high', $._argument),
         optional(seq(
           ',',
-          field('step', $.argument),
+          field('step', $._argument),
         )),
       ))
     ),
@@ -524,16 +526,16 @@ module.exports = grammar({
     )),
     unary_op: $ => prec.left(1, seq(
       field('operator', $.unary_operator),
-      field('operand', $.argument),
+      field('operand', $._argument),
     )),
 
     // binary_operation ::= '+' | '-' | '*' | '/' | '%' | '^' | 'land' | 'lor' | 'lxor' | 'band' | 'bor' | 'bxor' | 'bshl' | 'bshr' | 'bshru'
     //
     // https://souffle-lang.github.io/arguments#binary-operation
     binary_op: $ => choice(...BINOP.map(([fn, operator, precedence]) => fn(precedence, seq(
-      field('left', $.argument),
+      field('left', $._argument),
       field('operator', operator),
-      field('right', $.argument)
+      field('right', $._argument)
     )))),
 
     // relation_decl ::= '.decl' IDENT ( ',' IDENT )* '(' attribute ( ',' attribute )* ')' ( 'override' | 'inline' | 'no_inline' | 'magic' | 'no_magic' | 'brie' | 'btree' | 'eqrel' )* choice_domain
