@@ -202,7 +202,12 @@ module.exports = grammar({
     // component_init ::= '.init' IDENT '=' component_type
     //
     // https://souffle-lang.github.io/components#component-initialisation
-    component_init: $ => seq('.init', $.ident, '=', $.component_type),
+    component_init: $ => seq(
+      '.init',
+      field('name', $.ident),
+      '=',
+      field('component', $.component_type)
+    ),
 
     // directive ::= directive_qualifier qualified_name ( ',' qualified_name )* ( '(' ( IDENT '=' directive_value ( ',' IDENT '=' directive_value )* )? ')' )?
     //
