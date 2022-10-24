@@ -168,7 +168,7 @@ zero(as(0, T)).
 Unary ADT fact
 ============================================================
 
-zero($A).
+zero($Z(0)).
 
 ---
 
@@ -178,7 +178,9 @@ zero($A).
     (atom
       relation: (qualified_name (ident))
       argument:
-        (adt_constructor constructor: (qualified_name (ident))))))
+        (adt_constructor
+          constructor: (qualified_name (ident))
+          argument: (constant (number (integer (decimal))))))))
 
 ============================================================
 Unary max fact

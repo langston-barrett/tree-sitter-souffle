@@ -386,7 +386,7 @@ module.exports = grammar({
     adt_constructor: $ => seq(
       '$',
       field('constructor', $.qualified_name),
-      optional(parens(commas($._argument))),  // TODO(17): Make into a field
+      optional(parens(commas(field('argument', $._argument)))),
     ),
 
     record_constructor: $ => seq(brackets(commas($._argument))),
