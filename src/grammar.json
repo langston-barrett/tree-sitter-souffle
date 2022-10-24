@@ -3477,7 +3477,7 @@
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "adt_branch"
+                  "name": "_adt_branch"
                 },
                 {
                   "type": "REPEAT",
@@ -3490,7 +3490,7 @@
                       },
                       {
                         "type": "SYMBOL",
-                        "name": "adt_branch"
+                        "name": "_adt_branch"
                       }
                     ]
                   }
@@ -3501,12 +3501,16 @@
         ]
       }
     },
-    "adt_branch": {
+    "_adt_branch": {
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "ident"
+          "type": "FIELD",
+          "name": "constructor",
+          "content": {
+            "type": "SYMBOL",
+            "name": "ident"
+          }
         },
         {
           "type": "SEQ",
@@ -3522,8 +3526,12 @@
                   "type": "CHOICE",
                   "members": [
                     {
-                      "type": "SYMBOL",
-                      "name": "attribute"
+                      "type": "FIELD",
+                      "name": "field",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "attribute"
+                      }
                     },
                     {
                       "type": "BLANK"
@@ -3540,8 +3548,12 @@
                         "value": ","
                       },
                       {
-                        "type": "SYMBOL",
-                        "name": "attribute"
+                        "type": "FIELD",
+                        "name": "field",
+                        "content": {
+                          "type": "SYMBOL",
+                          "name": "attribute"
+                        }
                       }
                     ]
                   }

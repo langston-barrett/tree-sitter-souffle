@@ -8,12 +8,48 @@
         "required": true,
         "types": [
           {
-            "type": "adt_branch",
+            "type": ",",
+            "named": false
+          },
+          {
+            "type": "attribute",
             "named": true
+          },
+          {
+            "type": "ident",
+            "named": true
+          },
+          {
+            "type": "{",
+            "named": false
           },
           {
             "type": "|",
             "named": false
+          },
+          {
+            "type": "}",
+            "named": false
+          }
+        ]
+      },
+      "constructor": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "ident",
+            "named": true
+          }
+        ]
+      },
+      "field": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "attribute",
+            "named": true
           }
         ]
       },
@@ -27,25 +63,6 @@
           }
         ]
       }
-    }
-  },
-  {
-    "type": "adt_branch",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "attribute",
-          "named": true
-        },
-        {
-          "type": "ident",
-          "named": true
-        }
-      ]
     }
   },
   {

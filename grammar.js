@@ -584,6 +584,7 @@ module.exports = grammar({
       commas1(choice($.ident, parens(commas1($.ident)))),
     ),
 
+    // TODO(lb): Split into separate number/symbol type decls
     legacy_type_decl: $ => seq(
       field('supertype',
         choice(
@@ -640,17 +641,19 @@ module.exports = grammar({
     type_record: $ => prec.left(1, seq(
       field('left', $.ident),
       '=',
-      brackets(commas($.attribute)),
+      brackets(commas($.attribute)),  // TODO(#17): Fields
     )),
 
     adt: $ => prec.left(1, seq(
       field('left', $.ident),
       '=',
-      field('branch', sep1('|', $.adt_branch)),
+      field('branch', sep1('|', $._adt_branch)),
     )),
 
-    // TODO(lb): field names?
-    adt_branch: $ => seq($.ident, braces(commas($.attribute))),
+    _adt_branch: $ => seq(
+      field('constructor', $.ident),
+      braces(commas(field('field', $.attribute)))
+    ),
 
     // type_name ::=  "number" | "symbol" |"unsigned" | "float"  | IDENT ("." IDENT )*
     //
