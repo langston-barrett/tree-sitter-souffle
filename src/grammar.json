@@ -36,7 +36,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "rule"
+            "name": "_rule"
           },
           {
             "type": "SYMBOL",
@@ -381,7 +381,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "rule"
+                  "name": "_rule"
                 },
                 {
                   "type": "SYMBOL",
@@ -699,7 +699,7 @@
         }
       ]
     },
-    "rule": {
+    "_rule": {
       "type": "CHOICE",
       "members": [
         {
