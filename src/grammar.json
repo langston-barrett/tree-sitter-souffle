@@ -849,8 +849,12 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "PATTERN",
-                  "value": "[0-9]+"
+                  "type": "FIELD",
+                  "name": "number",
+                  "content": {
+                    "type": "PATTERN",
+                    "value": "[0-9]+"
+                  }
                 },
                 {
                   "type": "STRING",
@@ -870,8 +874,12 @@
                           "type": "CHOICE",
                           "members": [
                             {
-                              "type": "PATTERN",
-                              "value": "[0-9]+"
+                              "type": "FIELD",
+                              "name": "order",
+                              "content": {
+                                "type": "PATTERN",
+                                "value": "[0-9]+"
+                              }
                             },
                             {
                               "type": "BLANK"
@@ -888,8 +896,12 @@
                                 "value": ","
                               },
                               {
-                                "type": "PATTERN",
-                                "value": "[0-9]+"
+                                "type": "FIELD",
+                                "name": "order",
+                                "content": {
+                                  "type": "PATTERN",
+                                  "value": "[0-9]+"
+                                }
                               }
                             ]
                           }
@@ -917,8 +929,12 @@
                     "type": "SEQ",
                     "members": [
                       {
-                        "type": "PATTERN",
-                        "value": "[0-9]+"
+                        "type": "FIELD",
+                        "name": "number",
+                        "content": {
+                          "type": "PATTERN",
+                          "value": "[0-9]+"
+                        }
                       },
                       {
                         "type": "STRING",
@@ -938,8 +954,12 @@
                                 "type": "CHOICE",
                                 "members": [
                                   {
-                                    "type": "PATTERN",
-                                    "value": "[0-9]+"
+                                    "type": "FIELD",
+                                    "name": "order",
+                                    "content": {
+                                      "type": "PATTERN",
+                                      "value": "[0-9]+"
+                                    }
                                   },
                                   {
                                     "type": "BLANK"
@@ -956,8 +976,12 @@
                                       "value": ","
                                     },
                                     {
-                                      "type": "PATTERN",
-                                      "value": "[0-9]+"
+                                      "type": "FIELD",
+                                      "name": "order",
+                                      "content": {
+                                        "type": "PATTERN",
+                                        "value": "[0-9]+"
+                                      }
                                     }
                                   ]
                                 }
