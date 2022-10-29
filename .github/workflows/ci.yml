@@ -4,8 +4,6 @@ on:
   push:
     branches:
     - main
-    tags:
-    - '*'
   pull_request:
 
 jobs:
@@ -36,22 +34,3 @@ jobs:
           node-version: 19
       - run: npm install
       - run: npm test
-
-  release:
-    runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v')
-    permissions:
-      contents: write
-    steps:
-
-    - uses: actions/checkout@v3
-
-    # TODO(lb): Build
-    # TODO(lb): Package
-    # TODO(lb): Upload artifacts
-
-    - uses: ncipollo/release-action@v1
-      with:
-        body: "See CHANGELOG.md"
-        draft: true
-        token: ${{ secrets.GITHUB_TOKEN }}
