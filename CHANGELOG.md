@@ -2,6 +2,12 @@
 
 <!-- See: https://keepachangelog.com/en/1.0.0/ -->
 
+## [0.5.0] - 2025-10-25
+
+[Compare to v0.4.0][0.4.0...0.5.0]
+
+- Upgraded `tree-sitter` version
+
 ## [0.4.0] - 2022-10-24
 
 [Compare to v0.3.0][0.3.0...0.4.0]
@@ -65,6 +71,8 @@ First release!
 [0.2.0]: https://github.com/langston-barrett/tree-sitter-souffle/releases/tag/v0.2.0
 [0.3.0]: https://github.com/langston-barrett/tree-sitter-souffle/releases/tag/v0.3.0
 [0.4.0]: https://github.com/langston-barrett/tree-sitter-souffle/releases/tag/v0.4.0
+[0.5.0]: https://github.com/langston-barrett/tree-sitter-souffle/releases/tag/v0.5.0
+[0.4.0...0.5.0]: https://github.com/langston-barrett/tree-sitter-souffle/compare/v0.4.0...v0.5.0
 [0.3.0...0.4.0]: https://github.com/langston-barrett/tree-sitter-souffle/compare/v0.3.0...v0.4.0
 [0.2.0...0.3.0]: https://github.com/langston-barrett/tree-sitter-souffle/compare/v0.2.0...v0.3.0
 [0.1.0...0.2.0]: https://github.com/langston-barrett/tree-sitter-souffle/compare/v0.1.0...v0.2.0
